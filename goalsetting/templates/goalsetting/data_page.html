@@ -1,0 +1,26 @@
+{% extends 'goalsetting/base.html' %}
+{% load staticfiles %}}
+
+{% block title %} Form Page | Goal Setting {% endblock %}
+
+{% block content %} 
+<body style="background-color: #F8F8F8">
+
+		<div class="logo" style="float: right; margin-right: 30px; margin-top: -9px"> <img src="{% static 'goalsetting/images/logo.jpg' %}" alt="IO TECH"> </div>
+
+	<div class="container" style="background-color: #FFF">
+		<img src="{% static 'goalsetting/images/goal_img.jpg' %}" class='goal_img' alt = "GOAL IMAGE">
+
+		<br>
+		<br>
+
+
+ 		<h4 class="font_style"> Employee Goal Information </h4>
+
+ 		{% include 'goalsetting/snippets/final_form.html' %}
+
+
+</body>
+ {% endblock %}
+
+	</div>

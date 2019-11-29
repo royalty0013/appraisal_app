@@ -1,0 +1,375 @@
+<div id="journal">
+<div class="Form" >
+            <form action="" method="post">
+                {% csrf_token %}
+            <div style="float:left; margin-right:20px;" class="input_div">
+                <label for = "first-name" style="display: block;"> First Name<span style="color: red">*</span> </label>
+                <input placeholder="First Name" align="justify" type="text" name="firstname" required>
+            </div>
+
+            <div style="float:left; margin-right:20px;" class="input_div">
+                <label style="display: block;"> Middle Name<!-- <span style="color: red">*</span> --> </label>
+                <input placeholder="Middle Name"align="justify" type="text" name="surname" >
+            </div>
+
+            <div style="float:left;" class="input_div">
+                <label style="display: block;"> Last Name<span style="color: red">*</span> </label>
+                <input placeholder="Last Name"align="justify" type="text" name="lastname" required>
+            </div>
+
+              <br style="clear:both;" />
+              <br>
+            
+            <div style="float:left; margin-right:20px; width: 44%; ">
+                <label style="display: block;"> Staff ID<span style="color: red">*</span> </label>
+                <input placeholder="Staff ID" align="justify" type="text" name="staffid" style="width: 510px" required>
+            </div>
+
+
+            <div style="float:left; margin-right:20px; width: 45%; height: 80px; padding-top: 10px">
+            <label style="display: block;"> Job Level<span style="color: red">*</span> </label>
+                <select name="position" placeholder="Job Level" style="width: 517px" required>
+                    <option value="Job Level">Job Level</option>
+                    <option value="AEDC3-General Manager">AEDC3-General Manager</option>
+                    <option value="AEDC4-Senior Manager">AEDC4-Senior Manager</option>
+                    <option value="AEDC5-Manager">AEDC5-Manager</option>
+                    <option value="AEDC6-Assistant Manager">AEDC6-Assistant Manager</option>
+                    <option value="AEDC7-Senior Officer">AEDC7-Senior Officer</option>
+                    <option value="AEDC8-Function Officer 1">AEDC8-Function Officer 1</option>
+                    <option value="AEDC-9-Function Officer 2">AEDC-9-Function Officer 2</option>
+                    <option value="AEDC-10-Support Officer">AEDC-10-Support Officer</option>
+                </select>
+            </div>
+
+            <br style="clear:both;" />
+            <br>
+
+            <div style="float:left; margin-right:20px; width: 45%; ">
+            <label style="display: block;"> Unit<span style="color: red">*</span> </label>  
+                <select name="unit" placeholder="Unit" align="justify" style="width: 510px" required>
+                    <option value="Unit" >Unit</option>
+                    <option value="AEDC Change">AEDC Change</option>
+                    <option value="Human Resources and Industrial Relations">Human Resources and Industrial Relations</option>
+                    <option value="Billing">Billing</option>
+                    <option value="Fraud Billing">Fraud Billing</option>
+                    <option value="Debt Management">Debt Management</option>
+                    <option value="Technical Services">Technical Services</option>
+                    <option value="Commercial Services">Commercial Services</option>
+                    <option value="MAP">MAP</option>
+                    <option value="SPM">SPM</option>
+                    <option value="Projects">Projects</option>
+                    <option value="Protocol">Protocol</option>
+                    <option value="Business Corporate Risk">Business Corporate Risk</option>
+                    <option value="Commercial Performance Management">Commercial Performance Management</option>
+                    <option value="Communications Facilities and Infrasturcture">Communications Facilities and Infrasturcture</option>
+                    <option value="Company Secretariat">Company Secretariat</option>
+                    <option value="Compliance Audit">Compliance Audit</option>
+                    <option value="Contract and Documentation">Contract and Documentation</option>
+                    <option value="Corporate Communications">Corporate Communications</option>
+                    <option value="Corporate Finance and Corporate Development">Corporate Finance and Corporate Development</option>
+                    <option value="Customer Care Services">Customer Care Services</option>
+                    <option value="Cyber Security and BCP">Cyber Security and BCP</option>
+                    <option value="Dispute Resolution">Dispute Resolution</option>
+                    <option value="Environmental and Social">Environmental and Social</option>
+                    <option value="Financial Operations">Financial Operations</option>
+                    <option value="Fleet Management and Logistics">Fleet Management and Logistics</option>
+                    <option value="GIS and Communications">GIS and Communications</option>
+                    <option value="Health and Safety">Health and Safety</option>
+                    <option value="Human Resources & Administration">Human Resources & Administration</option>
+                    <option value="IT Audit">IT Audit</option>
+                    <option value="Key/Debt Account">Key/Debt Account</option>
+                    <option value="Legal Advisory">Legal Advisory</option>
+                    <option value="Legal Services">Legal Services</option>
+                    <option value="Management Office">Management Office</option>
+                    <option value="Network Deployment">Network Deployment</option>
+                    <option value="Network Surveillance">Network Surveillance</option>
+                    <option value="Network Operations">Network Operations</option>
+                    <option value="Operations and Maintenance">Operations and Maintenance</option>
+                    <option value="Operations Audit">Operations Audit</option>
+                    <option value="Operations Control">Operations Control</option>
+                    <option value="Protection, Control and Communications">Protection, Control and Communications</option>
+                    <option value="Quality Assurance">Quality Assurance</option>
+                    <option value="Facility">Facility</option>
+                    <option value="Regulatory and Government Relations">Regulatory and Government Relations</option>
+                    <option value="Revenue Protection">Revenue Protection</option>
+                    <option value="Security Services">Security Services</option>
+                    <option value="Shared Services">Shared Services</option>
+                    <option value="Strategic PMO Office">Strategic PMO Office</option>
+                    <option value="Strategy and Corporate Planning">Strategy and Corporate Planning</option>
+                    <option value="Supply Chain(Procurement)">Supply Chain(Procurement)</option>
+                    <option value="Treasury and Financial Risk Management">Treasury and Financial Risk Management</option>
+                    <option value="User Support and Applications Management">User Support and Applications Management</option>
+                    <option value="Vending">Vending</option>
+                </select>
+
+            </div>
+
+            <div style="float:left; margin-right:20px; width: 45%; ">
+            <label style="display: block;"> Directorate <span style="color: red">*</span> </label>
+                <select name="directorate" placeholder="directorate"align="justify" style="width: 509px" required>
+                    <option value="Directorate">Directorate</option>
+                    <option value="Change Management and PMO">Change Management and PMO</option>
+                    <option value="Projects">Projects</option>
+                    <option value="Operations">Operations</option>
+                    <option value="Corporate Services">Corporate Services</option>
+                    <option value="Financial Services">Financial Services</option>
+                    <option value="Information Communication and Technology">Information Communication and Technology</option>
+                    <option value="Internal Audit">Internal Audit</option>
+                    <option value="Legal Services and Company Secretariat">Legal Services and Company Secretariat</option>
+                    <option value="Risk and Compliance">Risk and Compliance</option>
+                </select>
+            </div>
+
+            <br style="clear:both;" />
+            <br>
+            
+            <div style="float:left; margin-right:20px; width: 45%;" >
+            <label style="display: block;"> Designation<span style="color: red">*</span> </label>  
+                <input placeholder="Designation" align="justify" type="text" name="designation" style="width: 510px" required>
+
+            </div>
+
+            <div style="float:left; margin-right:20px; width: 45%; ">
+            <label style="display: block;"> Supervisor Name<span style="color: red">*</span> </label>  
+                <input placeholder="Supervisor Name" align="justify" type="text" name="supervisor_name" style="width: 510px" required>
+            </div>
+            <br style="clear:both;" />
+            <br>
+               
+            <div style="float:left; margin-right:20px; width: 45%; ">
+            <label style="display: block;"> Area Office<!-- <span style="color: red">*</span> --> </label> 
+              <select name="area_office" placeholder="Area Office"align="justify" style="width: 510px">
+                    <option value="Area Office">Area Office</option>
+                    <option value="Gwagwalada">Gwagwalada</option>
+                    <option value="Jabi">Jabi</option>
+                    <option value="Kuje">Kuje</option>
+                    <option value="Apo">Apo</option>
+                    <option value="Lokogoma">Lokogoma</option>
+                    <option value="Lugbe">Lugbe</option>
+                    <option value="Asokoro">Asokoro</option>
+                    <option value="Garki">Garki</option>
+                    <option value="Jikwoyi">Jikwoyi</option>
+                    <option value="Karu">Karu</option>
+                    <option value="Maitama">Maitama</option>
+                    <option value="Head Office">Head Office</option>
+                    <option value="Wuse">Wuse</option>
+                    <option value="Bwari">Bwari</option>
+                    <option value="Gwarinpa">Gwarinpa</option>
+                    <option value="Katampe">Katampe</option>
+                    <option value="Kubwa">Kubwa</option>
+                    <option value="Mpape">Mpape</option>
+                    <option value="Life Camp">Life Camp</option>
+                    <option value="Bida">Bida</option>
+                    <option value="Bosso">Bosso</option>
+                    <option value="Kotangora">Kotangora</option>
+                    <option value="Minna">Minna</option>
+                    <option value="Suleja">Suleja</option>
+                    <option value="Zuma">Zuma</option>
+                    <option value="Idah">Idah</option>
+                    <option value="Kabba">Kabba</option>
+                    <option value="Lokoja">Lokoja</option>
+                    <option value="Okene">Okene</option>
+                    <option value="Ado">Ado</option>
+                    <option value="Akwanga">Akwanga</option>
+                    <option value="Keffi">Keffi</option>
+                    <option value="Lafia">Lafia</option>
+                    <option value="Mararaba">Mararaba</option>
+                </select>
+            </div>
+
+
+
+            <div style="float:left; margin-right:20px; width: 45%; ">
+            <label style="display: block;"> Region <span style="color: red">*</span> </label>
+                <select name="region" id="dropdown" style="width: 510px" required>
+                    <option value="Regions">Regions</option>
+                    <option value="FCT Central">FCT Central</option>
+                    <option value="FCT North">FCT North</option>
+                    <option value="FCT South">FCT South</option>
+                    <option value="FCT West">FCT West</option>
+                    <option value="FCT East">FCT East</option>
+                    <option value="Head Office">Head Office</option>
+                    <option value="Kogi">Kogi</option>
+                    <option value="Nasarawa">Nasarawa</option>
+                    <option value="Niger">Niger</option>
+                </select>
+            </div>
+             <br style="clear:both;" />
+            <br>
+
+    <div class="Goal-Info">
+        <h4><strong>Goal Information</strong></h4>
+        <br>
+        <b>From:<span style="color: red">*</span></b> <input placeholder="Date From" align="justify" type="date" name="from" style="width: 40%" required>
+        <b> To:<span style="color: red">*</span> </b> <input placeholder="Date To" align="justify" type="date" name="to" style="width: 40%" required>
+        <br>
+        <br>
+
+
+        <div class="Goal">
+            <h4><strong>Goals</strong></h4>
+            <table id="Goal-Table">
+                <thead>
+                    <tr id="Goal-Row">
+                        <th id="Goal-id">Goals</th>
+                        <th id="Goal-id">Specific Task to be accomplished</th>
+                        <th id="Goal-id">Achievment Criteria (KPI)</th>
+                        <th id="Goal-id">Link to Strategic Focus</th>
+                        <th id="Goal-id">Link to Balance Scorecard</th>
+                        <th id="Goal-id">Weight (100%)</th>
+                        <th id="Goal-id">Timeline</th>
+                    </tr>
+                </thead>
+                <tbody v-for="(product,index) in products" id="goals-tbody">
+                    <tr>
+                        <!-- <td class="no">{{index}}</td> -->
+                        <td id="Goal-td"><textarea style="width: 100%; height: 100px"  name= "objective" required></textarea></td>
+                        <td id="Goal-td"><textarea style="width: 200px; height: 100px" name= "specific_task" required></textarea></td>
+                        <td id="Goal-td"><textarea style="width: 200px; height: 100px" name= "achievement" required></textarea></td>
+                        <td id="Goal-td">
+                            <select style="width: 130px" class="strat-focus" name='strat' required>
+                                <option value="Click Here">Click Here</option>
+                                <option value="Reduce ATC&C Loss">Reduce ATC&C Loss</option>
+                                <option value="Achieve Financial Viability">Achieve Financial Viability</option>
+                                <option value="Create a Customer Centric Organization">Create a Customer Centric Organization</option>
+                                <option value="Effective Regulatory & Stakeholders Engagement">Effective Regulatory & Stakeholders Engagement</option>
+                                <option value="Improve HSE Practices">Improve HSE Practices</option>
+                                <option value="Implement Prudent Asset Management Practices">Implement Prudent Asset Management Practices</option>
+                                <option value="Deploy Fit for Purpose ICT Business Solutions">Deploy Fit for Purpose ICT Business Solutions</option>
+                                <option value="Create a High Performance Culture">Create a High Performance Culture</option>
+                                <option value="Compliance with Reengineered Business Processes">Compliance with Reengineered Business Processes</option>
+                              </select>
+                        </td>
+                        <td id="Goal-td" > <input type="text" style="width: 100%"> </td>
+                        <td id="Goal-td" ><input type="number" @change="process" v-model="product.weight" class="weight" style="width: 100%; height: 100px" name='weight' required></td>
+                        <td id="Goal-td"><textarea style="width: 100%; height: 100px" name= 'timeline' required></textarea></td>
+                        <td><i  class="fa fa-trash-o" @click="deleteRole(index)" value="Delete"></i></td>
+                    </tr>
+                    
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td><input type="text" v-model="debitTotal" name="total" class="total" id="total_values" ></td>
+                    </tr>
+                </tfoot>
+            </table>
+            <br>
+           
+            <button type="button" @click="addNewRole" class="btn btn-light btn-sm">Add</button>
+            <!-- <input type="button" value="+" id="row-add" style="background-color: #000080; color: #fff"> -->
+            <!-- <input type="button" name="" value="Delete Row" onclick="deleteRow('Goal-Table')" /> -->
+        </div>
+        <br>
+        <div class="End">
+            <p style="color: red">Note: Total weight must be 100:</p>
+        </div>
+        <br>
+        <div>
+            <h4> <b> Sign Off Information </b></h4>
+            <table>
+                <tr>
+                    <td style="text-align: left"><h5><strong>Appraisee (Employee)<span style="color: red">*</span></strong></h5></td>
+                    <td><input placeholder="firstname.lastname@abujaelectricity.com"align="justify" type="email" name="appraisee_email" style="width: 265px" required></td>
+
+                    <td><textarea style="width: 300px; height: 80px; margin-left: 30px" placeholder="enter comment" name="appraisee_comment"></textarea></td>
+                </tr>
+                <tr>
+                    <td style="text-align: left"><h5><strong>Appraiser (Line Manager)<span style="color: red">*</span></strong></h5></td>
+                    <td><input placeholder="firstname.lastname@abujaelectricity.com"align="justify" type="email" name="appraiser_email" style="width: 265px" required></td>
+
+                    <td><textarea style="width: 300px; height: 80px; margin-left: 30px" placeholder="enter comment" name="appraiser_comment" disabled></textarea></td>
+                </tr>
+                <tr>
+                    <td style="text-align: left"><h5><strong>Reviewer <span style="color: red">*</span></strong></h5></td>
+                    <td><input placeholder="firstname.lastname@abujaelectricity.com"align="justify" type="email" name="reviewer_email" style="width: 265px" required></td>
+
+                    <td><textarea style="width: 300px; height: 80px; margin-left: 30px" placeholder="enter comment" name="reviewer_comment" disabled></textarea></td>
+                </tr>
+            </table>
+            <p class="message"></p>
+            <input type="submit" value="submit" class="final"/>
+        </div>
+    </div>
+</form>
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+    <script>
+        var vm = new Vue({
+        el: '#journal',
+        data: {
+            products:[{
+                weight:0,
+                debit:'',
+                credit:'',
+                desc:'',              
+            }] 
+        },
+
+      computed:{
+        debitTotal(){
+          return this.products.reduce(function(carry,product){
+              return carry + (parseFloat(product.weight));
+          }, 0);
+        }
+       
+      },
+
+      methods:{
+            addNewRole(){
+              this.products.push({
+                         weight:0
+              });
+               var data = document.getElementById('total_values').value;  console.log(data+"Hi");
+               var data = $('.total').val();
+               // if(data>100 || data<100 ) {
+                if(data>100 ) {
+                    $('.final').attr('disabled',true);
+                    $('.message').html("Weight cannot be more or greater than 100");
+                    alert('Weight cannot be more or greater than 100');
+               }else{
+                   $('.message').html("");
+                   $('.final').attr('disabled',false); 
+               }
+            },
+
+             deleteRole(index){
+               this.products.splice(index,1)
+                var data = document.getElementById('total_values').value;  console.log(data+"Hi");
+               var data = $('.total').val();
+               // if(data>100 || data<100 ) {
+                if(data>100 ) {
+                    $('.final').attr('disabled',true);
+                    $('.message').html("Weight cannot be more or greater than 100");
+                    alert('Weight cannot be more or greater than 100');
+               }else{
+                   $('.message').html("");
+                   $('.final').attr('disabled',false); 
+               }
+            },
+
+            process(){
+               var data = document.getElementById('total_values').value;  console.log(data+"Hi");
+               var data = $('.total').val();
+               if(data>100 || data<100 ) {
+                // if(data>100 ) {
+                    $('.final').attr('disabled',true);
+                    $('.message').html("Weight cannot be more or greater than 100");
+                    alert('Weight cannot be more or greater than 100');
+               }else{
+                   $('.message').html("");
+                   $('.final').attr('disabled',false); 
+               }
+            },
+
+
+      }
+});
+
+</script>
+
+
+
+        

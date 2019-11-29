@@ -1,0 +1,184 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <SCRIPT language="javascript">
+            var markup = '<TR><TD id="Goal-td"><textarea style="width: 100%; height: 100px"></textarea></TD><TD id="Goal-td"><textarea style="width: 100%; height: 100px"></textarea></TD><TD id="Goal-td"><textarea style="width: 100%; height: 100px"></textarea></TD><TD id="Goal-td"><select name="country" style="width: 100%" class="strat-focus"><option value="in">Click Here</option><option value="in">Reduce ATC&C Loss</option><option value="de">Achieve Financial Viability</option><option value="fr">Create Customer Centric Organization</option><option value="us">Effective Regulatory & Stakeholders engagement strategies</option><option value="ch">Implement Prudent Asset Management Practices</option><option value="ch">Ensure Complete Corporate Transformation</option><option value="ch">Create High Performance Culture</option></select></TD><TD id="Goal-td"><input type="text" name="" disabled style="width: 100%" align="Central"></TD></TD><TD id="Goal-td"><textarea style="width: 100%; height: 100px"></textarea></TD><TD id="Goal-td"><textarea style="width: 100%; height: 100px"></textarea></TD><TD><button id="remove" onclick="delRow(this)" value="Delete">-</button></TD></TR>';
+        
+            $(document).ready(function() {
+                $("select").change(function() {
+                    var Regions = $(this).val();
+                    if (Regions == "FCT North") {
+                        $(".Goal-Info").show();
+                    } else if (Regions == "FCT Central") {
+                        $(".Goal-Info").show();
+                    } else if (Regions == "FCT South") {
+                        $(".Goal-Info").show();
+                    } else if (Regions == "Head Office") {
+                        $(".Goal-Info").show();
+                    } else if (Regions == "Kogi") {
+                        $(".Goal-Info").show();
+                    } else if (Regions == "Nasarawa") {
+                        $(".Goal-Info").show();
+                    } else if (Regions == "Niger") {
+                        $(".Goal-Info").show(); 
+                    } else if(Regions == "Regions") {
+                        $(".Goal-Info").hide();
+                    }
+                });
+            });
+            $(document).ready(function(){
+                $("#row").click(function(){
+                    $("#goals-tbody").append(markup);
+                    console.log(markup)
+                });         
+             });
+            $(document).on('click', '#remove', function(){
+                $(this).parents('TR').remove();    
+             });
+
+             $(function(){
+                $(document).on("change", ".strat-focus",function(){
+                  var stratSelected = $('option:selected',this).text();
+                  // console.log($(this).parent().next().text(''));
+                  console.log($(this).parent().next().text(''));
+                  switch(stratSelected){
+                      case 'Click Here':
+                          $(this).parent().next().text('');
+                          break;
+                      case 'Reduce ATC&C Loss':
+                          // $(this).parent().next().text('Financial');
+                          $(this).parent().next().append('<input type="text" name="bal" style="width:150px" value="Financial">');
+                          break;
+                      case 'Achieve Financial Viability':
+                          // $(this).next().next().children(":first").val("Financial");
+                          $(this).parent().next().append('<input type="text" name="bal" style="width:150px" value="Financial">');
+                          break;
+                      case 'Create a Customer Centric Organization':
+                          // $(this).parent().next().text('Customer');
+                          $(this).parent().next().append('<input type="text" name="bal" style="width:150px" value="Customer">');
+                          break;
+                      case 'Effective Regulatory & Stakeholders Engagement':
+                          // $(this).parent().next().text('Customer');
+                          $(this).parent().next().append('<input type="text" name="bal" style="width:150px" value="Customer">');
+                          break;
+                      case 'Improve HSE Practices':
+                          // $(this).parent().next().text('Processes');
+                          $(this).parent().next().append('<input type="text" name="bal" style="width:150px" value="Process">');
+                          break;
+                      case 'Implement Prudent Asset Management Practices':
+                          // $(this).parent().next().text('Processes');
+                          $(this).parent().next().append('<input type="text" name="bal" style="width:150px" value="Process">');
+                          break;
+                      case 'Deploy Fit for Purpose ICT Business Solutions':
+                          // $(this).parent().next().text('Processes');
+                          $(this).parent().next().append('<input type="text" name="bal" style="width:150px" value="Process">');
+                          break;
+                      case 'Create a High Performance Culture':
+                          // $(this).parent().next().text('Processes');
+                          $(this).parent().next().append('<input type="text" name="bal" style="width:150px" value="Innovation, Growth & Learning">');
+                          break;
+                      case 'Compliance with Reengineered Business Processes':
+                          // $(this).parent().next().text('Innovation, Growth & Learning');
+                          $(this).parent().next().append('<input type="text" name="bal" style="width:150px" value="Innovation, Growth & Learning">');
+                          break;
+                      default:
+                          break;
+                     }
+                 });
+
+            });
+
+             // second function for balanced score care
+
+            $(function(){
+                $(document).on("change", ".uptstrat-focus",function(){
+                  var upt_stratSelected = $('option:selected',this).text();
+                  // console.log($(this).parent().next().text(''));
+                  console.log($(this).parent().next().text(''));
+                  var key = $(this).attr('name').split("*")[1]
+                  switch(upt_stratSelected){
+                      
+                      case '{{ goal.Strategic_focus}}':
+                          $(this).parent().next().append('<input type="text" name="bal*'+key+'" style="width:150px" value={{ goal.Strategic_focus}}>');
+                          break;
+                      case 'Reduce ATC&C Loss':
+                          // $(this).parent().next().text('Financial');
+                          $(this).parent().next().append('<input type="text" name="bal*'+key+'" style="width:150px" value="Financial">');
+                          break;
+                      case 'Achieve Financial Viability':
+                          // $(this).parent().next().text('Financial');
+                          $(this).parent().next().append('<input type="text" name="bal*'+key+'" style="width:150px" value="Financial">');
+                          break;
+                      case 'Create a Customer Centric Organization':
+                          // $(this).parent().next().text('Customer');
+                          $(this).parent().next().append('<input type="text" name="bal*'+key+'" style="width:150px" value="Customer">');
+                          break;
+                      case 'Effective Regulatory & Stakeholders Engagement':
+                          // $(this).parent().next().text('Customer');
+                          $(this).parent().next().append('<input type="text" name="bal*'+key+'" style="width:150px" value="Customer">');
+                          break;
+                      case 'Improve HSE Practices':
+                          // $(this).parent().next().text('Processes');
+                          $(this).parent().next().append('<input type="text" name="bal*'+key+'" style="width:150px" value="Process">');
+                          break;
+                      case 'Implement Prudent Asset Management Practices':
+                          // $(this).parent().next().text('Processes');
+                          $(this).parent().next().append('<input type="text" name="bal*'+key+'" style="width:150px" value="Process">');
+                          break;
+                      case 'Deploy Fit for Purpose ICT Business Solutions':
+                          // $(this).parent().next().text('Processes');
+                          $(this).parent().next().append('<input type="text" name="bal*'+key+'" style="width:150px" value="Process">');
+                          break;
+                      case 'Create a High Performance Culture':
+                          // $(this).parent().next().text('Processes');
+                          $(this).parent().next().append('<input type="text" name="bal*'+key+'" style="width:150px" value="Innovation, Growth & Learning">');
+                          break;
+                      case 'Compliance with Reengineered Business Processes':
+                          // $(this).parent().next().text('Innovation, Growth & Learning');
+                          $(this).parent().next().append('<input type="text" name="bal*'+key+'" style="width:150px" value="Innovation, Growth & Learning">');
+                          break;
+                      default:
+                          $(this).parent().next().text('');
+                          break;
+                     }
+                 });
+
+            });
+
+
+    </SCRIPT>
+
+    
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% block title %} {% endblock %}</title>
+
+	<!-- <link rel="shortcut icon" href="{% static 'goalsetting/images/favicon.ico' %}" type="image/x-icon"> -->
+   <!-- link rel="icon" href="{% static 'goalsetting/images/favicon.jpg' %}" type="image/x-icon"> -->
+
+	<link rel="stylesheet" href="{% static 'goalsetting/css/src/style.css' %}" />
+	<link rel="stylesheet" href="{% static 'goalsetting/css/lib/bootstrap.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'goalsetting/css/lib/uikit.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'goalsetting/css/src/simple-sidebar.css' %}" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="{% static 'goalsetting/js/lib/jquery.js' %}"></script>
+    <script src="{% static 'goalsetting/js/lib/goal.js' %}"></script>
+    <script src="{% static 'goalsetting/js/lib/goalsetting.js' %}"></script>
+    <script src="{% static 'goalsetting/js/lib/bootstrap.min.js' %}"></script>
+	<script src="{% static 'goalsetting/js/lib/uikit.min.js' %}"></script>
+	<script src="{% static 'goalsetting/js/lib/uikit-icons.min.js' %}"></script>
+	
+</head>
+
+	{% block content %}
+
+	{% endblock%}
+
+</html>

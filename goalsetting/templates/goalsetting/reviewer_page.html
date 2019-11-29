@@ -1,0 +1,63 @@
+{% extends 'goalsetting/base.html' %}
+{% load staticfiles %}}
+
+{% block title %} Form Reviewer Page | Goal Setting {% endblock %}
+
+{% block content %} 
+
+<body style="background-color: #F8F8F8">
+	<div class="logo" style="float: right; margin-right: 30px; margin-top: -40px"> <img src="{% static 'goalsetting/images/logo.jpg' %}" alt="IO TECH"> </div>
+
+		<h3 class="page-head"> Employee Goal Setting Form </h3>
+
+			<div class="container" style="background-color: #FFF">
+
+       			<div class="desc" > 
+
+					<form class="inline">
+						<label> <b> Show or Hide Guideline </b></label><br>
+						<input type="radio"  class='radio-inline' name="optionsRadios" id="optionsRadios1" checked="checked">
+						<label> Show Guideline</label>
+						<input type="radio" class='radio-inline' name="optionsRadios" id="optionsRadios2">
+						<label> Hide Guideline</label>
+					</form>
+
+						<img src="{% static 'goalsetting/images/goal_img.jpg' %}" class='goal_img' alt = "GOAL IMAGE">
+
+       			</div>
+
+       				<div id="intro">
+       					<h3 class="font_style">AEDC Employee Goal Setting Form</h3>
+                <br>
+       				  		<h4 class="font_style"><u>Guidelines</u></h4>
+       				  			<p style="text-align: justify;">
+            						This form is used to set goals for the year and aimed at ensuring employee’s efforts are focused, value driven, and aligned to the goals of the organization for the year under review.  The goals set and agreed form the basis for the performance appraisal at the end of the period. The goals should be developed by the employee and agreed with the respective supervisor. The employee should have draft copy of the filled form prior to the meeting with the supervisor. A copy of the approved document should be forwarded to the Human Resources Team in employee’s location.
+        						</p>
+        						<br>
+        						<div>
+            						<h4 class="font_style">EXPLANATION  OF TERMS</h4>
+            						{% include 'goalsetting/snippets/table.html' %}
+            					</div>
+                    
+       				</div>
+                <h4 class="font_style"> Employee Information </h4>
+
+            {% include 'goalsetting/snippets/reviewer_form.html' %}
+
+              
+
+            </div>
+          </body>
+
+       			
+
+       	
+
+ 
+
+
+
+
+
+       	{% endblock %}
+

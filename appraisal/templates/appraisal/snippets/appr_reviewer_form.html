@@ -1,0 +1,738 @@
+<div id="app">
+<div class="Form" >
+            <form action= "{% url 'update_rec' userid %}" method="post">
+                {% csrf_token %}
+            <div style="float:left; margin-right:20px;" class="input_div">
+                <label for = "first-name" style="display: block;"> First Name<span style="color: red">*</span> </label>
+                <input placeholder={{gen_info.first_name}} align="justify" type="text" name="firstname" required>
+            </div>
+
+            <div style="float:left; margin-right:20px;" class="input_div">
+                <label style="display: block;"> Middle Name<!-- <span style="color: red">*</span> --> </label>
+                <input placeholder={{ gen_info.middle_name}} align="justify" type="text" name="middlename" >
+            </div>
+
+            <div style="float:left;" class="input_div">
+                <label style="display: block;"> Last Name<span style="color: red">*</span> </label>
+                <input placeholder={{ gen_info.last_name}} align="justify" type="text" name="lastname" required>
+            </div>
+
+              <br style="clear:both;" />
+              <br>
+            
+            <div style="float:left; margin-right:20px; width: 44%; ">
+                <label style="display: block;"> Staff ID<span style="color: red">*</span> </label>
+                <input placeholder={{ gen_info.staff_id}} align="justify" type="text" name="staffid" style="width: 510px" required>
+            </div>
+
+
+            <div style="float:left; margin-right:20px; width: 45%; height: 80px; padding-top: 10px">
+            <label style="display: block;"> Job Level<span style="color: red">*</span> </label>
+                <select name="position" placeholder={{ gen_info.position}} style="width: 517px" required>
+                    <option value={{ gen_info.position}}>{{ gen_info.position}}</option>
+                    <option value="AEDC3-General Manager">AEDC3-General Manager</option>
+                    <option value="AEDC4-Senior Manager">AEDC4-Senior Manager</option>
+                    <option value="AEDC5-Manager">AEDC5-Manager</option>
+                    <option value="AEDC6-Assistant Manager">AEDC6-Assistant Manager</option>
+                    <option value="AEDC7-Senior Officer">AEDC7-Senior Officer</option>
+                    <option value="AEDC8-Function Officer 1">AEDC8-Function Officer 1</option>
+                    <option value="AEDC-9-Function Officer 2">AEDC-9-Function Officer 2</option>
+                    <option value="AEDC-10-Support Officer">AEDC-10-Support Officer</option>
+                </select>
+            </div>
+
+            <br style="clear:both;" />
+            <br>
+
+            <div style="float:left; margin-right:20px; width: 45%; ">
+            <label style="display: block;"> Unit<span style="color: red">*</span> </label>  
+                <select name="unit" placeholder={{ gen_info.unit}} align="justify" style="width: 510px" required>
+                    <option value={{ gen_info.unit}}>{{ gen_info.unit}}</option>
+                    <option value="AEDC Change">AEDC Change</option>
+                    <option value="Human Resources and Industrial Relations">Human Resources and Industrial Relations</option>
+                    <option value="Billing">Billing</option>
+                    <option value="Fraud Billing">Fraud Billing</option>
+                    <option value="Debt Management">Debt Management</option>
+                    <option value="Technical Services">Technical Services</option>
+                    <option value="Commercial Services">Commercial Services</option>
+                    <option value="MAP">MAP</option>
+                    <option value="SPM">SPM</option>
+                    <option value="Projects">Projects</option>
+                    <option value="Protocol">Protocol</option>
+                    <option value="Business Corporate Risk">Business Corporate Risk</option>
+                    <option value="Commercial Performance Management">Commercial Performance Management</option>
+                    <option value="Communications Facilities and Infrasturcture">Communications Facilities and Infrasturcture</option>
+                    <option value="Company Secretariat">Company Secretariat</option>
+                    <option value="Compliance Audit">Compliance Audit</option>
+                    <option value="Contract and Documentation">Contract and Documentation</option>
+                    <option value="Corporate Communications">Corporate Communications</option>
+                    <option value="Corporate Finance and Corporate Development">Corporate Finance and Corporate Development</option>
+                    <option value="Customer Care Services">Customer Care Services</option>
+                    <option value="Cyber Security and BCP">Cyber Security and BCP</option>
+                    <option value="Dispute Resolution">Dispute Resolution</option>
+                    <option value="Environmental and Social">Environmental and Social</option>
+                    <option value="Financial Operations">Financial Operations</option>
+                    <option value="Fleet Management and Logistics">Fleet Management and Logistics</option>
+                    <option value="GIS and Communications">GIS and Communications</option>
+                    <option value="Health and Safety">Health and Safety</option>
+                    <option value="Human Resources & Administration">Human Resources & Administration</option>
+                    <option value="IT Audit">IT Audit</option>
+                    <option value="Key/Debt Account">Key/Debt Account</option>
+                    <option value="Legal Advisory">Legal Advisory</option>
+                    <option value="Legal Services">Legal Services</option>
+                    <option value="Management Office">Management Office</option>
+                    <option value="Network Deployment">Network Deployment</option>
+                    <option value="Network Surveillance">Network Surveillance</option>
+                    <option value="Network Operations">Network Operations</option>
+                    <option value="Operations and Maintenance">Operations and Maintenance</option>
+                    <option value="Operations Audit">Operations Audit</option>
+                    <option value="Operations Control">Operations Control</option>
+                    <option value="Protection, Control and Communications">Protection, Control and Communications</option>
+                    <option value="Quality Assurance">Quality Assurance</option>
+                    <option value="Facility">Facility</option>
+                    <option value="Regulatory and Government Relations">Regulatory and Government Relations</option>
+                    <option value="Revenue Protection">Revenue Protection</option>
+                    <option value="Security Services">Security Services</option>
+                    <option value="Strategic PMO Office">Strategic PMO Office</option>
+                    <option value="Strategy and Corporate Planning">Strategy and Corporate Planning</option>
+                    <option value="Supply Chain(Procurement)">Supply Chain(Procurement)</option>
+                    <option value="Treasury and Financial Risk Management">Treasury and Financial Risk Management</option>
+                    <option value="User Support and Applications Management">User Support and Applications Management</option>
+                    <option value="Vending">Vending</option>
+                     <option value="ICT Infrastructure and Platform">ICT Infrastructure and Platforms</option>
+                </select>
+
+            </div>
+
+            <div style="float:left; margin-right:20px; width: 45%; ">
+            <label style="display: block;"> Directorate <span style="color: red">*</span> </label>
+                <select name="directorate" placeholder={{ gen_info.directorate}} align="justify" style="width: 509px" required>
+                    <option value={{ gen_info.directorate}}>{{ gen_info.directorate}}</option>
+                    <option value="Change Management and PMO">Change Management and PMO</option>
+                    <option value="Projects">Projects</option>
+                    <option value="Operations">Operations</option>
+                    <option value="Corporate Services">Corporate Services</option>
+                    <option value="Financial Services">Financial Services</option>
+                    <option value="Information Communication and Technology">Information Communication and Technology</option>
+                    <option value="Internal Audit">Internal Audit</option>
+                    <option value="Legal Services and Company Secretariat">Legal Services and Company Secretariat</option>
+                    <option value="Risk and Compliance">Risk and Compliance</option>
+                </select>
+            </div>
+
+            <br style="clear:both;" />
+            <br>
+            
+            <div style="float:left; margin-right:20px; width: 45%;" >
+            <label style="display: block;"> Designation<span style="color: red">*</span> </label>  
+                <input placeholder={{ gen_info.directorate}} align="justify" type="text" name="designation" style="width: 510px" required>
+
+            </div>
+
+            <div style="float:left; margin-right:20px; width: 45%; ">
+            <label style="display: block;"> Supervisor Name<span style="color: red">*</span> </label>  
+                <input placeholder={{ gen_info.supervisor_name}} align="justify" type="text" name="supervisor_name" style="width: 510px" required>
+            </div>
+            <br style="clear:both;" />
+            <br>
+               
+            <div style="float:left; margin-right:20px; width: 45%; ">
+            <label style="display: block;"> Area Office<!-- <span style="color: red">*</span> --> </label> 
+              <select name="area_office" placeholder={{ gen_info.area_office }} align="justify" style="width: 510px">
+                    <option value={{ gen_info.area_office}}>{{ gen_info.area_office}}</option>
+                    <option value="Gwagwalada">Gwagwalada</option>
+                    <option value="Jabi">Jabi</option>
+                    <option value="Kuje">Kuje</option>
+                    <option value="Apo">Apo</option>
+                    <option value="Lokogoma">Lokogoma</option>
+                    <option value="Lugbe">Lugbe</option>
+                    <option value="Asokoro">Asokoro</option>
+                    <option value="Garki">Garki</option>
+                    <option value="Jikwoyi">Jikwoyi</option>
+                    <option value="Karu">Karu</option>
+                    <option value="Maitama">Maitama</option>
+                    <option value="Head Office">Head Office</option>
+                    <option value="Wuse">Wuse</option>
+                    <option value="Bwari">Bwari</option>
+                    <option value="Gwarinpa">Gwarinpa</option>
+                    <option value="Katampe">Katampe</option>
+                    <option value="Kubwa">Kubwa</option>
+                    <option value="Mpape">Mpape</option>
+                    <option value="Life Camp">Life Camp</option>
+                    <option value="Bida">Bida</option>
+                    <option value="Bosso">Bosso</option>
+                    <option value="Kotangora">Kotangora</option>
+                    <option value="Minna">Minna</option>
+                    <option value="Suleja">Suleja</option>
+                    <option value="Zuma">Zuma</option>
+                    <option value="Idah">Idah</option>
+                    <option value="Kabba">Kabba</option>
+                    <option value="Lokoja">Lokoja</option>
+                    <option value="Okene">Okene</option>
+                    <option value="Ado">Ado</option>
+                    <option value="Akwanga">Akwanga</option>
+                    <option value="Keffi">Keffi</option>
+                    <option value="Lafia">Lafia</option>
+                    <option value="Mararaba">Mararaba</option>
+                </select>
+            </div>
+
+
+
+            <div style="float:left; margin-right:20px; width: 45%; ">
+            <label style="display: block;"> Region <span style="color: red">*</span> </label>
+                <select name="region" id="dropdown" style="width: 510px" placeholder={{ gen_info.region}} required>
+                    <option value={{ gen_info.region}}>{{ gen_info.region}}</option>
+                    <option value="FCT Central">FCT Central</option>
+                    <option value="FCT North">FCT North</option>
+                    <option value="FCT South">FCT South</option>
+                    <option value="FCT West">FCT West</option>
+                    <option value="FCT East">FCT East</option>
+                    <option value="Head Office">Head Office</option>
+                    <option value="Kogi">Kogi</option>
+                    <option value="Nasarawa">Nasarawa</option>
+                    <option value="Niger">Niger</option>
+                </select>
+            </div>
+             <br style="clear:both;" />
+            <br>
+
+    <div class="Goal-Info">
+        <h4><strong>EVALUATION PERIOD</strong></h4>
+        <b>From:{{period_from}}</b>
+        <b> To:{{period_to}} </b>
+
+        <br>
+
+        <h4><strong>RATING GUIDE</strong></h4> </b>
+        <table id="appr_rating-guide">
+            <thead>
+            <tr id="Goal-Row">
+                <th id="Goal-id">Rating</th>
+                <th id="Goal-id">Scores</th>
+                <th id="Goal-id">Explanation</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td id="Goal-td">Exceeded       <b> (E) </b></td>
+                <td id="Goal-td">4 points            </td>
+                <td id="Goal-td">Exceeded the set goals </td>
+                </tr>
+                <tr>
+                <td id="Goal-td">Met           <b> ( M ) </b></td>
+                <td id="Goal-td">3 points            </td>
+                <td id="Goal-td">Met 100% of the set objectives </td>
+                </tr>
+                <tr>
+                <td id="Goal-td">Partially Met  <b> (PM)</b> </td>
+                <td id="Goal-td">2 Points          </td>
+                <td id="Goal-td">Met at least 70% on the objective set </td>
+                </tr>
+                 <tr>
+                <td id="Goal-td">Did Not Meet <b>( DM)</b> </td>
+                <td id="Goal-td">1 point         </td>
+                <td id="Goal-td">Met less than 70% on set objective </td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+
+        <div class="Goal">
+            <h4><strong>SECTION A: REVIEW AND EVALUATION OF GOALS (70%)</strong></h4>
+            <table id="Goal-Table">
+                <thead>
+                    <tr id="Goal-Row">
+                        <th id="Goal-id">Goal <span class="compulsory"> * </span></th>
+                        <th id="Goal-id">Actual Result Achieved <span class="compulsory"> * </span></th>
+                        <th id="Goal-id">Weight <span class="compulsory"> * </span></th>
+                        <th id="Goal-id">Rating <span class="compulsory"> * </span></th>
+                        <th id="Goal-id">Score <span class="compulsory"> * </span></th>
+                    </tr>
+                </thead>
+
+                <input type="hidden" name="period_from" value="{{period_from}}">
+                <input type="hidden" name="period_to" value="{{period_to}}">
+
+                <tbody v-for="(product,index) in products" id="goals-tbody">
+                    {% for goal in goals %}
+                        <input type="hidden" name="key" value="{{goal.id}}">
+                    <tr>
+                        <!-- <td class="no">{{index}}</td> -->
+                        <td id="Goal-td" style="width: 30%"><textarea style="width: 100%; height: 100px"  name= 'goal*{{goal.id}}' required> {{ goal.goal}} </textarea></td>
+
+                        <td id="Goal-td" style="width: 30%"><textarea style="width: 100%; height: 100px" name= 'actual_result*{{goal.id}}' required> {{ goal.actual_result}} </textarea></td>
+
+                        <td id="Goal-td"><input type="number" v-model="product.weight" class="weight" style="width: 100%; height: 100px" name='weight*{{goal.id}}' value={{ goal.weight }} required></td>
+
+                        <td id="Goal-td">
+                            <select v-model="product.selected" style="width: 100%" class="rating" name='rating*{{goal.id}}' required>
+                                <option value={{ goal.rating }} selected> {{ goal.rating }} </option>
+                                <option value=4>E</option>
+                                <option value=3>M</option>
+                                <option value=2>PM</option>
+                                <option value=1>DM</option>
+                            </select>
+                            </td> 
+                         <td id="Goal-td"><textarea style="width: 100%; height: 100px" name= 'score*{{goal.id}}' required> {{ goal.score }}</textarea></td>
+                        <td><i  class="fa fa-trash-o" @click="deleteRole(index)" value="Delete"></i></td>
+                    </tr>
+                     {% endfor %}
+                    
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td><input type="text" v-model="sumSection_A_Total" name="goals_score" class="total" id="total_values" value={{ gen_info.goals_score}} placeholder={{ gen_info.goals_score}}></td>
+                    </tr>
+                </tfoot>
+            </table>
+            <br>
+           
+            <button type="button" @click="addNewRole" class="btn btn-light btn-sm">Add</button>
+            <!-- <input type="button" value="+" id="row-add" style="background-color: #000080; color: #fff"> -->
+            <!-- <input type="button" name="" value="Delete Row" onclick="deleteRow('Goal-Table')" /> -->
+        </div>
+        <br>
+        <div class="End">
+            <p style="color: red">Note: Total weight must be 100:</p>
+            <p> <b> Please note the following Scoring Guide for Section A:</b> <br>
+                1) Point obtained/Maximum point X weight = Score obtained on each Goal above. <br> 
+                2)Total Score above X 70 Divide by 100 = Overall Score in section A <br>
+                3)Therefore Total Score for Goals Achieved is: <b style="font-weight:18px"> [overall_ScoreSectionA] </b></p>
+        </div>
+
+        <div>
+            <h4><strong>SECTION B: ASSESSMENT OF BEHAVIORAL COMPETENCES (30%)</strong></h4>
+
+            <div>
+            <label class="label_name"> Job Effectiveness <span class="compulsory"> * </span></label>
+
+            <input type="radio" name="job" v-model.number="point00" value="4" {% if behavior.job_effectiveness == 4 %} checked {% endif %}> Exceeded (E=4) 
+            <input type="radio" name="job" v-model.number="point00" value="3" {% if behavior.job_effectiveness == 3 %} checked {% endif %}> Met (M=3)
+            <input type="radio" name="job" v-model.number="point00" value="2" {% if behavior.job_effectiveness == 2 %} checked {% endif %}> Partially Met (PM=2)
+            <input type="radio" name="job" v-model.number="point00" value="1" {% if behavior.job_effectiveness == 1 %} checked {% endif %}> Did Not Meet (DM=1)
+
+            </div>
+            <br>
+            <div>
+            <label class="label_name"> Trust and Integrity <span class="compulsory"> * </span></label>
+
+            <input type="radio" name="trust" v-model.number="point01" value="4" {% if behavior.trust_and_integrity == 4 %} checked {% endif %}> Exceeded (E=4) 
+            <input type="radio" name="trust" v-model.number="point01" value="3" {% if behavior.trust_and_integrity == 3 %} checked {% endif %}> Met (M=3)
+            <input type="radio" name="trust" v-model.number="point01" value="2" {% if behavior.trust_and_integrity == 2 %} checked {% endif %}> Partially Met (PM=2)
+            <input type="radio" name="trust" v-model.number="point01" value="1" {% if behavior.trust_and_integrity == 1 %} checked {% endif %}> Did Not Meet (DM=1)
+
+            </div>
+            <br>
+            <div>
+            <label class="label_name"> Supervision and Management <span class="compulsory"> * </span></label>
+
+            <input type="radio" name="supervision" v-model.number="point02" value="4" {% if behavior.supervision == 4 %} checked {% endif %}> Exceeded (E=4) 
+            <input type="radio" name="supervision" v-model.number="point02" value="3" {% if behavior.supervision == 3 %} checked {% endif %}> Met (M=3)
+            <input type="radio" name="supervision" v-model.number="point02" value="2" {% if behavior.supervision == 2 %} checked {% endif %}> Partially Met (PM=2)
+            <input type="radio" name="supervision" v-model.number="point02" value="1" {% if behavior.supervision == 1 %} checked {% endif %}> Did Not Meet (DM=1)
+
+            </div>
+            <br>
+            <div>
+            <label class="label_name"> Dependability <span class="compulsory"> * </span></label>
+
+            <input type="radio" name="dependability" v-model.number="point03" value="4" {% if behavior.dependability == 4 %} checked {% endif %}> Exceeded (E=4) 
+            <input type="radio" name="dependability" v-model.number="point03" value="3" {% if behavior.dependability == 3 %} checked {% endif %}> Met (M=3)
+            <input type="radio" name="dependability" v-model.number="point03" value="2" {% if behavior.dependability == 2 %} checked {% endif %}> Partially Met (PM=2)
+            <input type="radio" name="dependability" v-model.number="point03" value="1" {% if behavior.dependability == 1 %} checked {% endif %}> Did Not Meet (DM=1)
+
+            </div>
+            <br>
+            <div>
+            <label class="label_name"> Collaboration and Team Work <span class="compulsory"> * </span></label>
+
+            <input type="radio" name="collaboration" v-model.number="point04" value="4" {% if behavior.collaboration == 4 %} checked {% endif %}> Exceeded (E=4) 
+            <input type="radio" name="collaboration" v-model.number="point04" value="3" {% if behavior.collaboration == 3 %} checked {% endif %}> Met (M=3)
+            <input type="radio" name="collaboration" v-model.number="point04" value="2" {% if behavior.collaboration == 2 %} checked {% endif %}> Partially Met (PM=2)
+            <input type="radio" name="collaboration" v-model.number="point04" value="1" {% if behavior.collaboration == 1 %} checked {% endif %}> Did Not Meet (DM=1)
+
+            </div>
+            <br>
+            <div>
+            <label class="label_name"> Organizational Success <span class="compulsory"> * </span></label>
+
+            <input type="radio" name="org_success" v-model.number="point05" value="4" {% if behavior.organizational_success == 4 %} checked {% endif %}> Exceeded (E=4) 
+            <input type="radio" name="org_success" v-model.number="point05" value="3" {% if behavior.organizational_success == 3 %} checked {% endif %}> Met (M=3)
+            <input type="radio" name="org_success" v-model.number="point05" value="2" {% if behavior.organizational_success == 2 %} checked {% endif %}> Partially Met (PM=2)
+            <input type="radio" name="org_success" v-model.number="point05" value="1" {% if behavior.organizational_success == 1 %} checked {% endif %}> Did Not Meet (DM=1)
+
+            </div>
+            <br>
+            <div>
+            <label class="label_name"> Customer Orientation <span class="compulsory"> * </span></label>
+
+            <input type="radio" name="orientation" v-model.number="point06" value="4" {% if behavior.customer_orientation == 4 %} checked {% endif %}> Exceeded (E=4) 
+            <input type="radio" name="orientation" v-model.number="point06" value="3" {% if behavior.customer_orientation == 3 %} checked {% endif %}> Met (M=3)
+            <input type="radio" name="orientation" v-model.number="point06" value="2" {% if behavior.customer_orientation == 2 %} checked {% endif %}> Partially Met (PM=2)
+            <input type="radio" name="orientation" v-model.number="point06" value="1" {% if behavior.customer_orientation == 1 %} checked {% endif %}> Did Not Meet (DM=1)
+
+            </div>
+            <br>
+            <div>
+            <label class="label_name"> Leadership Drive <span class="compulsory"> * </span></label>
+
+            <input type="radio" name="leadership" v-model.number="point07" value="4" {% if behavior.leadership_drive == 4 %} checked {% endif %}> Exceeded (E=4) 
+            <input type="radio" name="leadership" v-model.number="point07" value="3" {% if behavior.leadership_drive == 3 %} checked {% endif %}> Met (M=3)
+            <input type="radio" name="leadership" v-model.number="point07" value="2" {% if behavior.leadership_drive == 2 %} checked {% endif %}> Partially Met (PM=2)
+            <input type="radio" name="leadership" v-model.number="point07" value="1" {% if behavior.leadership_drive == 1 %} checked {% endif %}> Did Not Meet (DM=1)
+
+            </div>
+            <br>
+            <div>
+            <label class="label_name"> Organizational Compliance and Safety <span class="compulsory"> * </span></label>
+
+            <input type="radio" name="compliance" v-model.number="point08" value="4" {% if behavior.compliance_and_safety == 4 %} checked {% endif %}> Exceeded (E=4) 
+            <input type="radio" name="compliance" v-model.number="point08" value="3" {% if behavior.compliance_and_safety == 3 %} checked {% endif %}> Met (M=3)
+            <input type="radio" name="compliance" v-model.number="point08" value="2" {% if behavior.compliance_and_safety == 2 %} checked {% endif %}> Partially Met (PM=2)
+            <input type="radio" name="compliance" v-model.number="point08" value="1" {% if behavior.compliance_and_safety == 1 %} checked {% endif %}> Did Not Meet (DM=1)
+
+            </div>
+            <br>
+            <div>
+            <label class="label_name"> Diversity and Respect <span class="compulsory"> * </span></label>
+
+            <input type="radio" name="diversity" v-model.number="point09" value="4" {% if behavior.diversity_and_respect == 4 %} checked {% endif %}> Exceeded (E=4) 
+            <input type="radio" name="diversity" v-model.number="point09" value="3" {% if behavior.diversity_and_respect == 3 %} checked {% endif %}> Met (M=3)
+            <input type="radio" name="diversity" v-model.number="point09" value="2" {% if behavior.diversity_and_respect == 2 %} checked {% endif %}> Partially Met (PM=2)
+            <input type="radio" name="diversity" v-model.number="point09" value="1" {% if behavior.diversity_and_respect == 1 %} checked {% endif %}> Did Not Meet (DM=1)
+
+            </div>
+            <br>
+            <div>
+            <label class="label_name"> Attendance/Punctuality<span class="compulsory"> * </span></label>
+
+            <input type="radio" name="attendance" v-model.number="point10" value="4" {% if behavior.attendance == 4 %} checked {% endif %}> Exceeded (E=4) 
+            <input type="radio" name="attendance" v-model.number="point10" value="3" {% if behavior.attendance == 3 %} checked {% endif %}> Met (M=3)
+            <input type="radio" name="attendance" v-model.number="point10" value="2" {% if behavior.attendance == 2 %} checked {% endif %}> Partially Met (PM=2)
+            <input type="radio" name="attendance" v-model.number="point10" value="1" {% if behavior.attendance == 1 %} checked {% endif %}> Did Not Meet (DM=1)
+
+            </div>
+
+            <br>
+
+           <!--  <p style=" margin-left: 450px;"> Total points obtained: <input type="text" name="point_scored" class="total" placeholder="Total point">
+            <div> -->
+                <p> <b> Section B Scoring Guide:</b> <br>
+                1) Total points obtained/Maximum Points  X 30<br>
+                2) Therefore Total Score for Behavioral Competencies is:<b style="font-weight:18px"> [sumSection_B_Total] </b>
+                 </p>
+            </div>
+
+        </div>   
+
+        <div>
+            <h4><strong>SECTION C:  OVERALL RATING: SECTIONS A & B</strong></h4>
+
+              <table id="appr_rating-guide">
+                  
+                <tbody>
+                <tr style="background-color: white; color: black;">
+                      <td id="Goal-td"> Section A </td>
+                      <td id="Goal-td"><input type="text" v-model=overall_ScoreSectionA name="overall_score_sectA" class="total"  value={{ rating.section_A}} placeholder={{ rating.section_A}}></td>
+                  </tr>
+                   <tr style="background-color: white; color: black;">
+                      <td id="Goal-td">Section B </td>
+                      <td id="Goal-td"><input type="text" v-model=sumSection_B_Total name="overall_score_sectB" class="total"  value={{ rating.section_B}} placeholder={{ rating.section_B}}></td>
+                  </tr>
+                  <tr style="color: black;">
+                      <td id="Goal-td"> <b> TOTAL </b></td>
+                      <td id="Goal-td"> <input type="text" v-model=grandTotal name="total_score" class="total" value={{ rating.total_score}} placeholder={{ rating.total_score}}> </td>
+                  </tr>
+                  </tbody>
+              </table>
+
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <p> <b> Unsatisfactory (0-45%)</b> <br>
+                    Does not meet the required performance standards in key aspects of the job <br><br> <b> Unacceptable Performance </b>
+            </div>
+
+            <div class="col-sm-3">
+                <p> <b> Average (56-60%) </b><br>
+                    Level of productivity and general effectiveness meets the high standards for this position. Quality and quantity of output are average <br><br>
+                    <b> Improvement Needed </b>
+            </div>
+
+            <div class="col-sm-3">
+                <p><b> Satisfactory (61-75%) </b><br>
+                    Meets the required performance standards in all aspects of the job and sometimes exceeds the standards <br><br>
+                    <b> Sustain Performance </b>
+            </div>
+            <div class="col-sm-3">
+                <p><b> Exceptional (76-89%) </b><br>
+                    Meets All required performance standards and often exceeds the standards. <br><br>
+                    <b> Certainly ready for higher responsibility </b>
+            </div>
+
+            <div class="col-sm-3">
+                <p><b>Outstanding (90-100%)</b> <br>
+                    Consistently and significantly exceeded all performance standards and job requirements. Delivers outstanding standards. <br><br>
+                    <b> Ready and should be given Higher Responsibility. </b>
+            </div>
+        </div>
+
+        <div>
+                <h4 style="text-align: center;"><strong>EMPLOYEE KEY ACCOMPLISHMENT IN APPRAISED PERIOD</strong></h4>
+                <table align="center" id="appr_rating-guide" style="background-color: #fff; color: #000; width: fit-content; height: fit-content;">
+                <thead>
+                    <tr id="Goal-Row">
+                        <th id="Goal-id">Accomplishment <span class="compulsory"> * </span></th>
+                        <th id="Goal-id">Business Impact <span class="compulsory"> * </span></th>
+                    </tr>
+                </thead>
+
+                <input type="hidden" name="period_from" value="{{period_from}}">
+                <input type="hidden" name="period_to" value="{{period_to}}">
+
+                <tbody v-for="(employee_key,index) in employee_keys" id="goals-tbody">
+                    {% for accomplish in accomplishs %}
+                        <input type="hidden" name="key" value="{{accomplish.id}}">
+                    <tr>
+                        <td id="Goal-td"><textarea style="width: 650px; height: 100px"  name='accomplishment*{{accomplish.id}}' required> {{accomplish.accomplishment}}</textarea></td>
+                        <td id="Goal-td"><textarea style="width: 450px; height: 100px" name= 'business_impact*{{accomplish.id}}' required> {{accomplish.business_impact}}</textarea></td>
+                        <td><i  class="fa fa-trash-o" @click="deleteSubRole(index)" value="Delete"></i></td>
+                    </tr>
+                    {% endfor %}
+                    
+                </tbody>
+            </table><br>
+            <button type="button" @click="addSubRole" class="btn btn-light btn-sm">Add Key Accomplishment</button>
+
+        </div>
+            <br>
+
+        <div>
+            <h4 style="text-align: center;"><strong>PERFORMANCE IMPROVEMENT - DEVELOPMENT</strong></h4>
+
+            <table align="center" id="appr_rating-guide" style="background-color: #fff; color: #000; width: fit-content; height: fit-content;">
+                <thead>
+                    <tr id="Goal-Row">
+                        <th id="Goal-id">Key Strengths <span class="compulsory"> * </span></th>
+                        <th id="Goal-id">Improvement Areas ( E.g. Coaching, Mentoring, On-the-Job training and formal trainings) <span class="compulsory"> * </span></th>
+                        <th id="Goal-id">Developmental Recommendations (training/job rotation/job enlargement/Redeployment to another Function/Department/Location etc.)<span class="compulsory"> * </span></th>
+                    </tr>
+                </thead>
+
+                <input type="hidden" name="period_from" value="{{period_from}}">
+                <input type="hidden" name="period_to" value="{{period_to}}">
+
+                <tbody v-for="(performance,index) in performances" id="goals-tbody">
+                    {% for perf in perfs %}
+                        <input type="hidden" name="key" value="{{perf.id}}">
+                    <tr>
+                        <td id="Goal-td"><textarea style="width: 250px; height: 100px"  name= 'key_strength*{{perf.id}}' required> {{perf.key_strength}} </textarea></td>
+
+                        <td id="Goal-td"><textarea style="width: 100%; height: 100px" name= 'improvement_area*{{perf.id}}' required> {{perf.improvement_area}} </textarea></td>
+
+                         <td id="Goal-td"><textarea style="width: 100%; height: 100px" name= 'developmental_recommendation*{{perf.id}}' required> {{perf.developmental_recommendation}} </textarea></td>
+
+                        <td><i  class="fa fa-trash-o" @click="deleteChildRole(index)" value="Delete"></i></td>
+                    </tr>
+                    {% endfor %}
+                    
+                </tbody>
+            </table><br>
+            <button type="button" @click="addChildRole" class="btn btn-light btn-sm">Add Development</button>
+
+        </div>
+        <br>
+        <div>
+            <h4><strong>SIGN-OFF</strong></h4>
+            <table>
+                <tr>
+                    <td style="text-align: left"><h5><strong>Appraisee (Employee)<span style="color: red">*</span></strong></h5></td>
+                    <td><input placeholder="{{ gen_info.appraisee_email }} "align="justify" type="email" name="appraisee_email" style="width: 265px" disabled></td>
+
+                    <td><textarea style="width: 300px; height: 80px; margin-left: 30px" value="{{ comment.appraisee_comment }}" placeholder="{{ comment.appraisee_comment }}" disabled></textarea></td>
+                </tr>
+                <tr>
+                    <td style="text-align: left"><h5><strong>Appraiser (Line Manager)<span style="color: red">*</span></strong></h5></td>
+                    <td><input placeholder="{{ gen_info.appraiser_email }}" align="justify" type="email" name="appraiser_email" style="width: 265px" disabled></td>
+
+                    <td><textarea style="width: 300px; height: 80px; margin-left: 30px" value="{{ comment.appraiser_comment }}" placeholder="{{ comment.appraiser_comment }}" disabled></textarea></td>
+                </tr>
+                <tr>
+                    <td style="text-align: left"><h5><strong>Reviewer <span style="color: red">*</span></strong></h5></td>
+                    <td><input placeholder="{{ gen_info.reviewer_email }}" align="justify" type="email" name="reviewer_email" style="width: 265px" disabled></td>
+
+                    <td><textarea style="width: 300px; height: 80px; margin-left: 30px" value="{{ comment.reviewer_comment }}" placeholder="{{ comment.reviewer_comment }}" ></textarea></td>
+                </tr>
+            </table>
+            <input type="submit" value="Update" style="display: inline-block; background-color:#000080; color: #fff;">
+            <div style=" display:inline-block;background-color:#000080; border: 2px outset #999da0; height: 24px;"> <a href="{{link}}" style="color: #fff"> Reviewed  </a> </div>
+        </div>
+
+</form>
+</div>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+    <script>
+        var vm = new Vue({
+        delimiters: ["[","]"],
+        el: '#app',
+        data: {
+            selected:"",
+            point00:"",
+            point01:"",
+            point02:"",
+            point03:"",
+            point04:"",
+            point05:"",
+            point06:"",
+            point07:"",
+            point08:"",
+            point09:"",
+            point10:"",
+            products:[{
+                weight:0,
+                desc:'',
+                selected:0              
+            }],
+            employee_keys:[{
+                weight:0,
+                debit:'',
+                credit:'',
+                desc:'',              
+            }],
+            performances:[{
+                weight:0,
+                debit:'',
+                credit:'',
+                desc:'',              
+            }]
+         
+        },
+
+      computed:{
+        sumSection_A_Total(){
+            return this.products.reduce(function(carry,product){
+              return carry + (product.weight)*(product.selected/4);
+          }, 0);
+        },
+
+        overall_ScoreSectionA(){
+            return this.sumSection_A_Total*(70/100);
+        },
+
+        sumSection_B_Total: function(){
+                return ((this.point00 + this.point01 + this.point02 + this.point03 + this.point04 + this.point05 + this.point06 + this.point07 + this.point08 + this.point09 + this.point10)/44*30).toFixed(2)
+        },
+
+        grandTotal(){
+            //return (Number(this.overall_ScoreSectionA)) + (Number(this.sumSection_B_Total));
+            return (parseFloat(this.overall_ScoreSectionA)) + (parseFloat(this.sumSection_B_Total));
+        },
+
+        sumValue(){
+            var data = document.getElementById('total_values').value;  console.log(data+"Hi");
+               var data = $('.total').val();
+               // if(data>100 || data<100 ) {
+                if(data>100 ) {
+                    $('.final').attr('disabled',true);
+                    $('.message').html("Weight cannot be more or greater than 100");
+                    alert('Weight cannot be more or greater than 100');
+               }else{
+                   $('.message').html("");
+                   $('.final').attr('disabled',false); 
+               }
+        }
+       
+      },
+
+      methods:{
+
+            assesmentScore: function(){
+                return ((this.point00 + this.point01 + this.point02 + this.point03 + this.point04 + this.point05 + this.point06 + this.point07 + this.point08 + this.point09 + this.point10)/44*30).toFixed(2)
+            },
+
+            addNewRole(){
+              this.products.push({ weight:0});  
+            },
+
+            addSubRole(){
+                this.employee_keys.push({ weight:0 });
+            },
+
+            addChildRole(){
+                this.performances.push({weight:0});
+            },
+
+    
+            deleteRole(index){
+               this.products.splice(index,1)
+               var data = document.getElementById('total_values').value;  console.log(data+"Hi");
+               var data = $('.total').val();
+               // if(data>100 || data<100 ) {
+                if(data>100 ) {
+                    $('.final').attr('disabled',true);
+                    $('.message').html("Weight cannot be more or greater than 100");
+                    alert('Weight cannot be more or greater than 100');
+               }else{
+                   $('.message').html("");
+                   $('.final').attr('disabled',false); 
+               }
+            },
+
+            deleteSubRole(index){
+               this.employee_keys.splice(index,1)
+                var data = document.getElementById('total_values').value;  console.log(data+"Hi");
+               var data = $('.total').val();
+               // if(data>100 || data<100 ) {
+                if(data>100 ) {
+                    $('.final').attr('disabled',true);
+                    $('.message').html("Weight cannot be more or greater than 100");
+                    alert('Weight cannot be more or greater than 100');
+               }else{
+                   $('.message').html("");
+                   $('.final').attr('disabled',false); 
+               }
+            },
+
+
+              deleteChildRole(index){
+               this.performances.splice(index,1)
+                var data = document.getElementById('total_values').value;  console.log(data+"Hi");
+               var data = $('.total').val();
+               // if(data>100 || data<100 ) {
+                if(data>100 ) {
+                    $('.final').attr('disabled',true);
+                    $('.message').html("Weight cannot be more or greater than 100");
+                    alert('Weight cannot be more or greater than 100');
+               }else{
+                   $('.message').html("");
+                   $('.final').attr('disabled',false); 
+               }
+            },
+
+            process(){
+               var data = document.getElementById('total_values').value;  console.log(data+"Hi");
+               var data = $('.total').val();
+               if(data>100 || data<100 ) {
+                // if(data>100 ) {
+                    $('.final').attr('disabled',true);
+                    $('.message').html("Weight cannot be more or greater than 100");
+                    alert('Weight cannot be more or greater than 100');
+               }else{
+                   $('.message').html("");
+                   $('.final').attr('disabled',false); 
+               }
+            },
+
+
+      }
+});
+
+</script>
+
+
+         -->

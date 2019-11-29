@@ -1,0 +1,118 @@
+
+.Tbody{
+	background-image: url('/static/goalsetting/images/goal.jpg');
+	height: 625px;
+}
+
+.page_body{
+  background-image: url('/static/goalsetting/images/perf.jpg');
+  height: 625px;
+}
+
+.uk-card-body {
+	word-wrap: break-word;
+}
+
+
+.logo{
+	margin-left: 80px;
+	margin-top: -10px;
+}
+
+.page-head{
+	color: red;
+	text-align: center;
+	font-weight: bold;
+	margin-left: 780px;
+}
+
+.inline{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.goal_img{
+	margin-left: 300px;
+}
+
+.desc_table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  border: 0px solid transparent;
+}
+
+.desc_td, tr {
+  border: 0px solid transparent;
+  text-align: right;
+  padding-left: 120px;
+  margin-right: 20px;
+}
+
+.font_style{
+	font-weight: bold;
+}
+
+.input_div{
+
+  width: 30%;
+}
+
+input[type=text], select {
+  width: 310px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+
+
+#Goal-id{
+  border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+#Goal-Table{
+  font-family: arial, sans-serif;
+  width: 100%;
+}
+#Goal-Row:nth-child(even) {
+  background-color: #dddddd;
+}
+#Goal-td{
+  border: 1px solid #dddddd;
+    text-align: left;
+}
+#remove{
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  background-color: #000080;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  
+}
+#row{
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  background-color: tomato;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  
+}
+
+.app_button{
+  border: 1px solid #fff !important;
+  background-color: #000080;
+  color:#fff;
+  border-radius: 5px;
+  display: inline-block;
+
+}
+

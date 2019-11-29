@@ -1,0 +1,164 @@
+
+.Tbody{
+	background-image: url('/static/appraisal/images/perf.jpg');
+	height: 625px;
+}
+
+
+.uk-card-body {
+	word-wrap: break-word;
+}
+
+
+.logo{
+	margin-left: 80px;
+	margin-top: -10px;
+}
+
+.page-head{
+	color: red;
+	text-align: center;
+	font-weight: bold;
+	margin-left: 780px;
+}
+
+.inline{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.goal_img{
+	margin-left: 300px;
+}
+
+.desc_table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  border: 0px solid transparent;
+}
+
+.desc_td, tr {
+  border: 0px solid transparent;
+  text-align: right;
+  padding-left: 70px;
+  margin-right: 20px;
+}
+
+.font_style{
+	font-weight: bold;
+}
+
+.input_div{
+
+  width: 30%;
+}
+
+input[type=text], select {
+  width: 310px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+
+
+#Goal-id{
+  border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+    font-weight: bolder;
+}
+#Goal-Table{
+  font-family: arial, sans-serif;
+  width: 100%;
+}
+#appr_rating-guide{
+  font-family: arial, sans-serif;
+  width: 60%;
+  background-color: blue;
+  color:white;
+}
+
+#Goal-Row:nth-child(even) {
+  background-color: #dddddd;
+}
+#Goal-td{
+  border: 1px solid #dddddd;
+    text-align: left;
+}
+#remove{
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  background-color: #000080;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  
+}
+#row{
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  background-color: tomato;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  
+}
+
+.app_button{
+  border: 1px solid #fff !important;
+  background-color: #000080;
+  color:#fff;
+  border-radius: 5px;
+  display: inline-block;
+
+}
+
+.appr_img{
+  float: right;
+}
+
+#appr_intro{
+  margin-top: 35px;
+}
+
+.compulsory{
+  color: red;
+  font-weight: bolder;
+}
+
+
+.label_name{
+  display: block;
+}
+
+#g_setting{
+  margin-left: 340px;
+  margin-top: 240px;
+  width: 190px;
+  height: 70px;
+  font-weight: bolder;
+  font-size: 19px;
+  background-color: #00203FFF;
+  color: #fff;
+  display: inline-block;
+}
+
+#appr_form{
+  float: right;
+  margin-top: 240px;
+  margin-right: 270px;
+  width: 300px;
+  height: 70px;
+  font-weight: bolder;
+  font-size: 19px;
+  background-color: #00203FFF;
+  color: #fff;
+}
+

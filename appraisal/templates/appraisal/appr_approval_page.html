@@ -1,0 +1,47 @@
+{% extends 'appraisal/base.html' %}
+{% load staticfiles %}}
+
+{% block title %} Appraiser Approver Page | Appraiser {% endblock %}
+
+{% block content %} 
+
+<body style="background-color: #F8F8F8">
+	<div class="logo" style="float: right; margin-right: 30px; margin-top: -40px"> <img src="{% static 'goalsetting/images/logo.jpg' %}" alt="AEDC"> </div>
+
+		<p style="color: #000066; font-weight: bolder; float: right;">  <a href="{% url 'log_out' %}"> <span class="glyphicon glyphicon-off" aria-hidden="true"> Logout  </span></a> </p>
+    <h3 class="page-head"> EMPLOYEE APPRAISAL FORM</h3>
+
+			<div class="container" style="background-color: #FFF">
+
+       		<div class="appr_div" > 
+
+			<form class="inline">
+            <label> <b> Show or Hide Guideline </b></label><br>
+            <input type="radio"  class='radio-inline' name="optionsRadios" id="optionsRadios1" checked="checked">
+            <label> Show Guideline</label>
+            <input type="radio" class='radio-inline' name="optionsRadios" id="optionsRadios2">
+            <label> Hide Guideline</label>
+      </form>
+
+						<img src="{% static 'goalsetting/images/appr_img.jpg' %}" class='appr_img' alt = "APPRAISAL IMAGE">
+
+       		</div>
+
+       				<div id="appr_intro">
+        <h3 class="font_style">AEDC EMPLOYEE APPRAISAL FORM</h3>
+        
+          <h4 class="font_style"><u>GUIDELINES</u></h4>
+           <p>The completed appraisal form and the subsequent discussion with the employee’s supervisor aim to assess the employee’s job performance as well as the achievement of his/her goals as determined and agreed at the beginning of the performance appraisal cycle. Furthermore, it serves as a medium for providing formal feedback on the employee’s job performance</p>
+
+           <p> The form is segmented into four sections- A-D which must all be completed. </p>
+          {% include 'appraisal/snippets/appr_table.html' %}
+    </div>
+
+    <h4 class="font_style"> EMPLOYEE INFORMATION </h4>
+    {% include 'appraisal/snippets/appr_approver_form.html' %}
+
+</div>
+</body>
+
+{% endblock %}
+
