@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '3d-nhh!haw%_$qt4sfztb&kz0m-meztoyu58sw3)etkw#4tao&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -121,7 +121,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-APP_BASE_URL = "127.0.0.1:8000"
+APP_BASE_URL = "http://10.60.17.135:80"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
