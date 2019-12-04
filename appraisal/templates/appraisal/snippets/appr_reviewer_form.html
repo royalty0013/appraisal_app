@@ -4,17 +4,17 @@
                 {% csrf_token %}
             <div style="float:left; margin-right:20px;" class="input_div">
                 <label for = "first-name" style="display: block;"> First Name<span style="color: red">*</span> </label>
-                <input placeholder={{gen_info.first_name}} align="justify" type="text" name="firstname" required>
+                <input value={{gen_info.first_name}} placeholder={{gen_info.first_name}} align="justify" type="text" name="firstname" required>
             </div>
 
             <div style="float:left; margin-right:20px;" class="input_div">
                 <label style="display: block;"> Middle Name<!-- <span style="color: red">*</span> --> </label>
-                <input placeholder={{ gen_info.middle_name}} align="justify" type="text" name="middlename" >
+                <input  value={{gen_info.middle_name}} placeholder={{ gen_info.middle_name}} align="justify" type="text" name="middlename" >
             </div>
 
             <div style="float:left;" class="input_div">
                 <label style="display: block;"> Last Name<span style="color: red">*</span> </label>
-                <input placeholder={{ gen_info.last_name}} align="justify" type="text" name="lastname" required>
+                <input value={{gen_info.last_name}} placeholder={{ gen_info.last_name}} align="justify" type="text" name="lastname" required>
             </div>
 
               <br style="clear:both;" />
@@ -22,7 +22,7 @@
             
             <div style="float:left; margin-right:20px; width: 44%; ">
                 <label style="display: block;"> Staff ID<span style="color: red">*</span> </label>
-                <input placeholder={{ gen_info.staff_id}} align="justify" type="text" name="staffid" style="width: 510px" required>
+                <input value={{gen_info.staff_id}} placeholder={{ gen_info.staff_id}} align="justify" type="text" name="staffid" style="width: 510px" required>
             </div>
 
 
@@ -125,13 +125,13 @@
             
             <div style="float:left; margin-right:20px; width: 45%;" >
             <label style="display: block;"> Designation<span style="color: red">*</span> </label>  
-                <input placeholder={{ gen_info.directorate}} align="justify" type="text" name="designation" style="width: 510px" required>
+                <input value={{gen_info.directorate}} placeholder={{ gen_info.directorate}} align="justify" type="text" name="designation" style="width: 510px" required>
 
             </div>
 
             <div style="float:left; margin-right:20px; width: 45%; ">
             <label style="display: block;"> Supervisor Name<span style="color: red">*</span> </label>  
-                <input placeholder={{ gen_info.supervisor_name}} align="justify" type="text" name="supervisor_name" style="width: 510px" required>
+                <input value={{gen_info.supervisor_name}} placeholder={{ gen_info.supervisor_name}} align="justify" type="text" name="supervisor_name" style="width: 510px" required>
             </div>
             <br style="clear:both;" />
             <br>
@@ -246,7 +246,9 @@
                         <th id="Goal-id">Goal <span class="compulsory"> * </span></th>
                         <th id="Goal-id">Actual Result Achieved <span class="compulsory"> * </span></th>
                         <th id="Goal-id">Weight <span class="compulsory"> * </span></th>
-                        <th id="Goal-id">Rating <span class="compulsory"> * </span></th>
+                        <th id="Goal-id">Appraisee Rating <span class="compulsory"> * </span></th>
+                        <th id="Goal-id">Appraiser/Agreed Rating <span class="compulsory"> * </span> </th>
+                       <!--  <th id="Goal-id">Average <span class="compulsory"> * </span></th> -->
                         <th id="Goal-id">Score <span class="compulsory"> * </span></th>
                     </tr>
                 </thead>
@@ -266,14 +268,27 @@
                         <td id="Goal-td"><input type="number" v-model="product.weight" class="weight" style="width: 100%; height: 100px" name='weight*{{goal.id}}' value={{ goal.weight }} required></td>
 
                         <td id="Goal-td">
-                            <select v-model="product.selected" style="width: 100%" class="rating" name='rating*{{goal.id}}' required>
-                                <option value={{ goal.rating }} selected> {{ goal.rating }} </option>
+                            <select v-model="product.selected" style="width: 100%" class="appraisee_rating" name='appraisee_rating*{{goal.id}}' required>
+                                <option value={{ goal.appraisee_rating }}> {{ goal.appraisee_rating }} </option>
                                 <option value=4>E</option>
                                 <option value=3>M</option>
                                 <option value=2>PM</option>
                                 <option value=1>DM</option>
                             </select>
-                            </td> 
+                        </td> 
+
+                        <td id="Goal-td">
+                            <select  style="width: 100%" class="appraiser_rating" name="appraiser_rating*{{ goal.id }}" required="required"> 
+                                <option value={{ goal.appraiser_rating }}> {{ goal.appraiser_rating }} </option>
+                                <option value=4>E</option>
+                                <option value=3>M</option>
+                                <option value=2>PM</option>
+                                <option value=1>DM</option>
+                            </select>
+                        </td>
+
+                       <!--  <td id="Goal-td"><textarea style="width: 100%; height: 100px" name= "average*{{goal.id}}"> {{ goal.average }} </textarea></td> -->
+
                          <td id="Goal-td"><textarea style="width: 100%; height: 100px" name= 'score*{{goal.id}}' required> {{ goal.score }}</textarea></td>
                         <td><i  class="fa fa-trash-o" @click="deleteRole(index)" value="Delete"></i></td>
                     </tr>
@@ -298,7 +313,7 @@
             <p> <b> Please note the following Scoring Guide for Section A:</b> <br>
                 1) Point obtained/Maximum point X weight = Score obtained on each Goal above. <br> 
                 2)Total Score above X 70 Divide by 100 = Overall Score in section A <br>
-                3)Therefore Total Score for Goals Achieved is: <b style="font-weight:18px"> [overall_ScoreSectionA] </b></p>
+                3)Therefore Total Score for Goals Achieved is: <b style="font-weight:18px"> {{ rating.section_A}} </b></p>
         </div>
 
         <div>
@@ -420,7 +435,7 @@
             <div> -->
                 <p> <b> Section B Scoring Guide:</b> <br>
                 1) Total points obtained/Maximum Points  X 30<br>
-                2) Therefore Total Score for Behavioral Competencies is:<b style="font-weight:18px"> [sumSection_B_Total] </b>
+                2) Therefore Total Score for Behavioral Competencies is:<b style="font-weight:18px"> {{ rating.section_B}} </b>
                  </p>
             </div>
 
@@ -451,18 +466,18 @@
         <br>
 
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <p> <b> Unsatisfactory (0-45%)</b> <br>
                     Does not meet the required performance standards in key aspects of the job <br><br> <b> Unacceptable Performance </b>
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <p> <b> Average (56-60%) </b><br>
                     Level of productivity and general effectiveness meets the high standards for this position. Quality and quantity of output are average <br><br>
                     <b> Improvement Needed </b>
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <p><b> Satisfactory (61-75%) </b><br>
                     Meets the required performance standards in all aspects of the job and sometimes exceeds the standards <br><br>
                     <b> Sustain Performance </b>
@@ -473,7 +488,7 @@
                     <b> Certainly ready for higher responsibility </b>
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <p><b>Outstanding (90-100%)</b> <br>
                     Consistently and significantly exceeded all performance standards and job requirements. Delivers outstanding standards. <br><br>
                     <b> Ready and should be given Higher Responsibility. </b>
@@ -486,7 +501,8 @@
                 <thead>
                     <tr id="Goal-Row">
                         <th id="Goal-id">Accomplishment <span class="compulsory"> * </span></th>
-                        <th id="Goal-id">Business Impact <span class="compulsory"> * </span></th>
+                        <th id="Goal-id">Link to Strategic Focus <span class="compulsory"> * </span></th>
+                        <th id="Goal-id">Link to Balanced Score Card <span class="compulsory"> * </span>
                     </tr>
                 </thead>
 
@@ -495,10 +511,27 @@
 
                 <tbody v-for="(employee_key,index) in employee_keys" id="goals-tbody">
                     {% for accomplish in accomplishs %}
-                        <input type="hidden" name="key" value="{{accomplish.id}}">
+                        <input type="hidden" name="accomp_key" value="{{accomplish.id}}">
                     <tr>
-                        <td id="Goal-td"><textarea style="width: 650px; height: 100px"  name='accomplishment*{{accomplish.id}}' required> {{accomplish.accomplishment}}</textarea></td>
-                        <td id="Goal-td"><textarea style="width: 450px; height: 100px" name= 'business_impact*{{accomplish.id}}' required> {{accomplish.business_impact}}</textarea></td>
+                        <td id="Goal-td"><textarea style="width: 450px; height: 100px"  name='accomplishment*{{accomplish.id}}' required> {{accomplish.accomplishment}}</textarea></td>
+
+                        <td id="Goal-td" width="350px">
+                            <select class="uptstrat-focus" name='strat*{{accomplish.id}}' style="width: 350px" required>
+                                <option value="accomplish.strategic_focus"> {{ accomplish.strategic_focus }} </option>
+                                <option value="Reduce ATC&C Loss">Reduce ATC&C Loss</option>
+                                <option value="Achieve Financial Viability">Achieve Financial Viability</option>
+                                <option value="Create a Customer Centric Organization">Create a Customer Centric Organization</option>
+                                <option value="Effective Regulatory & Stakeholders Engagement">Effective Regulatory & Stakeholders Engagement</option>
+                                <option value="Improve HSE Practices">Improve HSE Practices</option>
+                                <option value="Implement Prudent Asset Management Practices">Implement Prudent Asset Management Practices</option>
+                                <option value="Deploy Fit for Purpose ICT Business Solutions">Deploy Fit for Purpose ICT Business Solutions</option>
+                                <option value="Create a High Performance Culture">Create a High Performance Culture</option>
+                                <option value="Compliance with Reengineered Business Processes">Compliance with Reengineered Business Processes</option>
+                              </select>
+                        </td>
+
+                         <td id="Goal-td"><input type="text" style="width: 100%" name= 'bal*{{accomplish.id}}' align="Central" value="{{accomplish.balanced_scorecard}}"></td>
+
                         <td><i  class="fa fa-trash-o" @click="deleteSubRole(index)" value="Delete"></i></td>
                     </tr>
                     {% endfor %}
@@ -527,7 +560,7 @@
 
                 <tbody v-for="(performance,index) in performances" id="goals-tbody">
                     {% for perf in perfs %}
-                        <input type="hidden" name="key" value="{{perf.id}}">
+                        <input type="hidden" name="perf_key" value="{{perf.id}}">
                     <tr>
                         <td id="Goal-td"><textarea style="width: 250px; height: 100px"  name= 'key_strength*{{perf.id}}' required> {{perf.key_strength}} </textarea></td>
 
@@ -552,28 +585,27 @@
                     <td style="text-align: left"><h5><strong>Appraisee (Employee)<span style="color: red">*</span></strong></h5></td>
                     <td><input placeholder="{{ gen_info.appraisee_email }} "align="justify" type="email" name="appraisee_email" style="width: 265px" disabled></td>
 
-                    <td><textarea style="width: 300px; height: 80px; margin-left: 30px" value="{{ comment.appraisee_comment }}" placeholder="{{ comment.appraisee_comment }}" disabled></textarea></td>
+                    <td><textarea name="appraisee_comment" style="width: 300px; height: 80px; margin-left: 30px" value="{{ comment.appraisee_comment }}" placeholder="{{ comment.appraisee_comment }}" disabled></textarea></td>
                 </tr>
                 <tr>
                     <td style="text-align: left"><h5><strong>Appraiser (Line Manager)<span style="color: red">*</span></strong></h5></td>
                     <td><input placeholder="{{ gen_info.appraiser_email }}" align="justify" type="email" name="appraiser_email" style="width: 265px" disabled></td>
 
-                    <td><textarea style="width: 300px; height: 80px; margin-left: 30px" value="{{ comment.appraiser_comment }}" placeholder="{{ comment.appraiser_comment }}" disabled></textarea></td>
+                    <td><textarea name="appraiser_comment" style="width: 300px; height: 80px; margin-left: 30px" placeholder="{{ comment.appraiser_comment }}" disabled> {{ comment.appraiser_comment }} </textarea></td>
                 </tr>
                 <tr>
                     <td style="text-align: left"><h5><strong>Reviewer <span style="color: red">*</span></strong></h5></td>
                     <td><input placeholder="{{ gen_info.reviewer_email }}" align="justify" type="email" name="reviewer_email" style="width: 265px" disabled></td>
 
-                    <td><textarea style="width: 300px; height: 80px; margin-left: 30px" value="{{ comment.reviewer_comment }}" placeholder="{{ comment.reviewer_comment }}" ></textarea></td>
+                    <td><textarea name="reviewer_comment" style="width: 300px; height: 80px; margin-left: 30px" placeholder="{{ comment.reviewer_comment }}"> {{ comment.reviewer_comment }}</textarea></td>
                 </tr>
             </table>
             <input type="submit" value="Update" style="display: inline-block; background-color:#000080; color: #fff;">
-            <div style=" display:inline-block;background-color:#000080; border: 2px outset #999da0; height: 24px;"> <a href="{{link}}" style="color: #fff"> Reviewed  </a> </div>
-        </div>
+            <div style=" display:inline-block;background-color:#000080; border: 2px outset #999da0; height: 24px;"> <a href="{{link}}" style="color: #fff"> Approved </a> </div>
+        </div>    
 
 </form>
 </div>
-
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
     <script>

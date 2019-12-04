@@ -121,7 +121,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-APP_BASE_URL = "http://10.60.17.135:80"
+APP_BASE_URL = "http://127.0.0.1:8000"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/

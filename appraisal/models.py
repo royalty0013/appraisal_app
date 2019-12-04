@@ -166,9 +166,9 @@ class Appraisal_Form(models.Model):
 	supervisor_name = models.CharField(max_length=100, null=True)
 	area_office = models.CharField(max_length=30, choices=AREA_OFFICE, null=True)
 	region = models.CharField(max_length=30, choices=REGION, null=True)
-	goals_score = models.IntegerField(default=0)
+	goals_score = models.FloatField(default=0.0)
 	overall_score_sectA = models.FloatField(default=0.0)
-	# total_score = models.IntegerField(default=0)
+	total_score = models.FloatField(default=0.0)
 	appraisee_email = models.EmailField(null=True)
 	appraiser_email = models.EmailField(null=True)
 	reviewer_email = models.EmailField(null=True)
@@ -220,19 +220,22 @@ class Appraisal_info(models.Model):
 	goal = models.TextField(max_length=300)
 	actual_result =models.TextField(max_length=300)
 	weight = models.IntegerField(default=0)
-	rating = models.CharField(max_length=10, choices=RATING_CHOICES)
-	score = models.IntegerField(default=0)
+	appraisee_rating = models.CharField(max_length=10, choices=RATING_CHOICES)
+	appraiser_rating = models.CharField(max_length=10, choices=RATING_CHOICES)
+	# average = models.FloatField(default=0.0)
+	score = models.FloatField(default=0.0)
 
 	class meta:
-		verbose_name = "goal"
-		verbose_name_plural = "goals"
+		verbose_name = "goal score"
+		verbose_name_plural = "goal scores"
 
 class Accomplishment(models.Model):
 	user=models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
 	period_from = models.CharField(max_length=50, null=True)
 	period_to = models.CharField(max_length=50, null=True)
 	accomplishment = models.CharField(max_length=300, null=True)
-	business_impact = models.CharField(max_length=300, null=True)
+	strategic_focus = models.CharField(max_length=300, null=True)
+	balanced_scorecard = models.CharField(max_length=300, null=True)
 
 	class meta:
 		verbose_name = "accomplishment"

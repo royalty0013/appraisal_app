@@ -43,7 +43,7 @@ def appr_form(request):
 		region = request.POST['region'],
 		goals_score = request.POST['goals_score'],
 		overall_score_sectA = request.POST['overall_score_sectA'],
-		# total_score= request.POST['total_score'],
+		total_score= request.POST['total_score'],
 		appraisee_email = request.POST['appraisee_email'],
 		appraiser_email = request.POST['appraiser_email'],
 		reviewer_email = request.POST['reviewer_email'],
@@ -54,7 +54,7 @@ def appr_comment(request):
 	c = Appr_comment(
 		user=request.user,
 		first_name = request.POST['firstname'],
-		last_name = request.POST['middlename'],
+		last_name = request.POST['lastname'],
 		staff_id = request.POST['staffid'],
 		period_from = request.POST['from'],
 		period_to=request.POST['to'],
@@ -75,6 +75,9 @@ def behavior_comp(request):
 		user=request.user,
 		period_from = request.POST['from'],
 		period_to=request.POST['to'],
+		first_name = request.POST['firstname'],
+		last_name = request.POST['lastname'],
+		staff_id = request.POST['staffid'],
 		job_effectiveness=request.POST['job'],
 		trust_and_integrity =request.POST['trust'],
 		supervision =request.POST['supervision'],
@@ -87,7 +90,7 @@ def behavior_comp(request):
 		diversity_and_respect =request.POST['diversity'],
 		attendance =request.POST['attendance'],
 		# point_scored =request.POST['goals_total_scoreA'],
-		overall_score_sectB =request.POST['overall_score_sectB'],
+		# overall_score_sectB =request.POST['overall_score_sectB'],
 		)
 	return behavior
 
@@ -96,6 +99,7 @@ def overall_rating(request):
 		user=request.user,
 		period_from = request.POST['from'],
 		period_to=request.POST['to'],
+		staff_id = request.POST['staffid'],
 		section_A=request.POST['overall_score_sectA'],
 		section_B=request.POST['overall_score_sectB'],
 		total_score=request.POST['total_score'],
@@ -107,7 +111,9 @@ def get_appr_info(request):
 	goal = request.POST.getlist('goal')
 	actual_result = request.POST.getlist('actual_result')
 	weight = request.POST.getlist('weight')
-	rating = request.POST.getlist('rating')
+	appraisee_rating = request.POST.getlist('appraisee_rating')
+	appraiser_rating = request.POST.getlist('appraiser_rating')
+	# average = request.POST.getlist('average')
 	score = request.POST.getlist('score')
 
 	for i, val in enumerate(goal):
@@ -118,7 +124,9 @@ def get_appr_info(request):
 			goal=goal[i],
 			actual_result=actual_result[i],
 			weight=weight[i],
-			rating=rating[i],
+			appraisee_rating=appraisee_rating[i],
+			appraiser_rating=appraiser_rating[i],
+			# average=average[i],
 		    score=score[i],
 			)
 		appraisals.append(i_appraisal)
@@ -127,7 +135,8 @@ def get_appr_info(request):
 def get_accomplish_info(request):
 	accomplishs = []
 	accomplishment = request.POST.getlist('accomplishment')
-	business_impact = request.POST.getlist('business_impact')
+	strategic_focus = request.POST.getlist('strat')
+	balanced_scorecard = request.POST.getlist('bal')
 
 	for i, val in enumerate(accomplishment):
 		i_accomplish = Accomplishment(
@@ -135,7 +144,8 @@ def get_accomplish_info(request):
 			period_from=request.POST['from'],
 			period_to=request.POST['to'],
 			accomplishment=accomplishment[i],
-			business_impact=business_impact[i],
+			strategic_focus=strategic_focus[i],
+			balanced_scorecard=balanced_scorecard[i],
 			)
 		accomplishs.append(i_accomplish)
 	return accomplishs
@@ -352,43 +362,92 @@ def appr_final_approval(request, user, period_from, period_to):
 def update_rec(request, pk):
 	user = User.objects.get(pk=pk)
 	keys = request.POST.getlist('key')
+	accomp_keys = request.POST.getlist('accomp_key')
+	perf_keys = request.POST.getlist('perf_key')
 	for key in keys:
 		print(key)		
-		upt_goal = goal_info.objects.get(pk=int(key))
-		upt_goal.objective = request.POST["objective*{}".format(key)]
-		upt_goal.specific_task = request.POST["specific_task*{}".format(key)]
-		upt_goal.KPI = request.POST["achievement*{}".format(key)]
-		upt_goal.Strategic_focus = request.POST["strat*{}".format(key)]
-		upt_goal.Balanced_scorecard = request.POST["bal*{}".format(key)] 
+		upt_goal = Appraisal_info.objects.get(pk=int(key))
+		upt_goal.goal = request.POST["goal*{}".format(key)]
+		upt_goal.actual_result = request.POST["actual_result*{}".format(key)]
 		upt_goal.weight = request.POST["weight*{}".format(key)]
-		upt_goal.timeline = request.POST["timeline*{}".format(key)]
-
+		upt_goal.appraisee_rating = request.POST["appraisee_rating*{}".format(key)]
+		upt_goal.appraiser_rating = request.POST["appraiser_rating*{}".format(key)] 
+		upt_goal.average = request.POST["average*{}".format(key)]
+		upt_goal.score = request.POST["score*{}".format(key)]
 		upt_goal.save()
-	comments = Comment.objects.filter(user=user, period_from=request.POST['period_from'], period_to=request.POST['period_to'])[0]
+
+	for accomp_key in accomp_keys:
+		print(accomp_key)
+		upt_accomplishment = Accomplishment.objects.get(pk=int(accomp_key))
+		upt_accomplishment.accomplishment = request.POST["accomplishment*{}".format(accomp_key)]
+		upt_accomplishment.strategic_focus = request.POST["strat*{}".format(accomp_key)]
+		upt_accomplishment.balanced_scorecard = request.POST["bal*{}".format(accomp_key)]
+		upt_accomplishment.save()
+
+	for perf_key in perf_keys:
+		print(perf_key)
+		upt_perf = Perf_improvement.objects.get(pk=int(perf_key))
+		upt_perf.key_strength = request.POST["key_strength*{}".format(perf_key)]
+		upt_perf.improvement_area = request.POST["improvement_area*{}".format(perf_key)]
+		upt_perf.developmental_recommendation = request.POST["developmental_recommendation*{}".format(perf_key)]
+		upt_perf.save()
+
+	ratings = Overall_rating.objects.filter(user=user, period_from=request.POST['period_from'], period_to=request.POST['period_to'])[0]
+	ratings.save()
+
+	user_form = Appraisal_Form.objects.filter(user=user)[0]
+	user_form.save()
+
+	comments = Appr_comment.objects.filter(user=user, period_from=request.POST['period_from'], period_to=request.POST['period_to'])[0]
 	comments.appraiser_comment = request.POST['appraiser_comment']
 	comments.save()
 
-	return HttpResponseRedirect("/confirm/{}/{}/{}/".format(pk,request.POST['period_from'],request.POST['period_to']))
+	return HttpResponseRedirect("/appr_confirm/{}/{}/{}/".format(pk,request.POST['period_from'],request.POST['period_to']))
 
 def update_rec2(request, pk):
 	user = User.objects.get(pk=pk)
 	keys = request.POST.getlist('key')
-	for key in keys:		
-		upt_goal = goal_info.objects.get(pk=int(key))
-		upt_goal.objective = request.POST["objective*{}".format(key)]
-		upt_goal.specific_task = request.POST["specific_task*{}".format(key)]
-		upt_goal.KPI = request.POST["achievement*{}".format(key)]
-		upt_goal.Strategic_focus = request.POST["strat*{}".format(key)]
-		upt_goal.Balanced_scorecard = request.POST["bal*{}".format(key)]
+	accomp_keys = request.POST.getlist('accomp_key')
+	perf_keys = request.POST.getlist('perf_key')
+	for key in keys:
+		print(key)		
+		upt_goal = Appraisal_info.objects.get(pk=int(key))
+		upt_goal.goal = request.POST["goal*{}".format(key)]
+		upt_goal.actual_result = request.POST["actual_result*{}".format(key)]
 		upt_goal.weight = request.POST["weight*{}".format(key)]
-		upt_goal.timeline = request.POST["timeline*{}".format(key)]
-
+		upt_goal.appraisee_rating = request.POST["appraisee_rating*{}".format(key)]
+		upt_goal.appraiser_rating = request.POST["appraiser_rating*{}".format(key)] 
+		upt_goal.average = request.POST["average*{}".format(key)]
+		upt_goal.score = request.POST["score*{}".format(key)]
 		upt_goal.save()
-	comments = Comment.objects.filter(user=user, period_from=request.POST['period_from'], period_to=request.POST['period_to'])[0]
+
+	for accomp_key in accomp_keys:
+		print(accomp_key)
+		upt_accomplishment = Accomplishment.objects.get(pk=int(accomp_key))
+		upt_accomplishment.accomplishment = request.POST["accomplishment*{}".format(accomp_key)]
+		upt_accomplishment.strategic_focus = request.POST["strat*{}".format(accomp_key)]
+		upt_accomplishment.balanced_scorecard = request.POST["bal*{}".format(accomp_key)]
+		upt_accomplishment.save()
+
+	for perf_key in perf_keys:
+		print(perf_key)
+		upt_perf = Perf_improvement.objects.get(pk=int(perf_key))
+		upt_perf.key_strength = request.POST["key_strength*{}".format(perf_key)]
+		upt_perf.improvement_area = request.POST["improvement_area*{}".format(perf_key)]
+		upt_perf.developmental_recommendation = request.POST["developmental_recommendation*{}".format(perf_key)]
+		upt_perf.save()
+
+	ratings = Overall_rating.objects.filter(user=user, period_from=request.POST['period_from'], period_to=request.POST['period_to'])[0]
+	ratings.save()
+
+	user_form = Appraisal_Form.objects.filter(user=user)[0]
+	user_form.save()
+
+	comments = Appr_comment.objects.filter(user=user, period_from=request.POST['period_from'], period_to=request.POST['period_to'])[0]
 	comments.reviewer_comment = request.POST['reviewer_comment']
 	comments.save()
 
-	return HttpResponseRedirect("/review/{}/{}/{}/".format(pk,request.POST['period_from'],request.POST['period_to']))
+	return HttpResponseRedirect("/appr_review/{}/{}/{}/".format(pk,request.POST['period_from'],request.POST['period_to']))
 
 def send_email(details):
     applicant_name = details['applicant_name']

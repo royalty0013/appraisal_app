@@ -7,7 +7,7 @@ admin.site.index_title = "Performance Management Admin"
 admin.site.site_title = "Performance Management Admin"
 
 class AppraisalFormAdmin(admin.ModelAdmin):
-	list_display = ['user', 'first_name', 'middle_name', 'last_name', 'staff_id', 'position', 'unit', 'directorate', 'designation', 'supervisor_name', 'area_office', 'region', 'goals_score', 'overall_score_sectA', 'appraisee_email', 'appraiser_email', 'reviewer_email']
+	list_display = ['user', 'first_name', 'middle_name', 'last_name', 'staff_id', 'position', 'unit', 'directorate', 'designation', 'supervisor_name', 'area_office', 'region', 'goals_score', 'overall_score_sectA', 'total_score', 'appraisee_email', 'appraiser_email', 'reviewer_email']
 	search_fields = ['user','staff_id', 'appraisee_email']
 	filter_horizontal = ()
 	list_filter = ()
@@ -15,7 +15,7 @@ class AppraisalFormAdmin(admin.ModelAdmin):
 admin.site.register(Appraisal_Form, AppraisalFormAdmin)
 
 class AppraisalInfoAdmin(admin.ModelAdmin):
-	list_display = ['user', 'period_from', 'period_to', 'goal', 'actual_result', 'weight', 'rating', 'score']
+	list_display = ['user', 'period_from', 'period_to', 'goal', 'actual_result', 'weight', 'appraisee_rating', 'appraiser_rating', 'score']
 	search_fields = ['user__email']
 	filter_horizontal = ()
 	list_filter = ()
@@ -47,7 +47,7 @@ class OverallRatingAdmin(admin.ModelAdmin):
 admin.site.register(Overall_rating, OverallRatingAdmin)
 
 class AccomplishmentAdmin(admin.ModelAdmin):
-	list_display = ['user', 'period_from','period_to', 'accomplishment', 'business_impact']
+	list_display = ['user', 'period_from','period_to', 'accomplishment', 'strategic_focus', 'balanced_scorecard']
 	search_fields = ['user__email']
 	filter_horizontal = ()
 	list_filter = ()

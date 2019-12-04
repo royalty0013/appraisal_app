@@ -101,44 +101,44 @@
                   var key = $(this).attr('name').split("*")[1]
                   switch(upt_stratSelected){
                       
-                      case '{{ goal.Strategic_focus}}':
-                          $(this).parent().next().append('<input type="text" name="bal*'+key+'" style="width:150px" value={{ goal.Strategic_focus}}>');
+                      case '{{ accomplish.Strategic_focus}}':
+                          $(this).parent().next().append('<input type="text" name="bal*'+key+'" style="width:100%" value={{ goal.Strategic_focus}}>');
                           break;
                       case 'Reduce ATC&C Loss':
                           // $(this).parent().next().text('Financial');
-                          $(this).parent().next().append('<input type="text" name="bal*'+key+'" style="width:150px" value="Financial">');
+                          $(this).parent().next().append('<input type="text" name="bal*'+key+'" style="width:100%" value="Financial">');
                           break;
                       case 'Achieve Financial Viability':
                           // $(this).parent().next().text('Financial');
-                          $(this).parent().next().append('<input type="text" name="bal*'+key+'" style="width:150px" value="Financial">');
+                          $(this).parent().next().append('<input type="text" name="bal*'+key+'" style="width:100%" value="Financial">');
                           break;
                       case 'Create a Customer Centric Organization':
                           // $(this).parent().next().text('Customer');
-                          $(this).parent().next().append('<input type="text" name="bal*'+key+'" style="width:150px" value="Customer">');
+                          $(this).parent().next().append('<input type="text" name="bal*'+key+'" style="width:100%" value="Customer">');
                           break;
                       case 'Effective Regulatory & Stakeholders Engagement':
                           // $(this).parent().next().text('Customer');
-                          $(this).parent().next().append('<input type="text" name="bal*'+key+'" style="width:150px" value="Customer">');
+                          $(this).parent().next().append('<input type="text" name="bal*'+key+'" style="width:100%" value="Customer">');
                           break;
                       case 'Improve HSE Practices':
                           // $(this).parent().next().text('Processes');
-                          $(this).parent().next().append('<input type="text" name="bal*'+key+'" style="width:150px" value="Process">');
+                          $(this).parent().next().append('<input type="text" name="bal*'+key+'" style="width:100%" value="Process">');
                           break;
                       case 'Implement Prudent Asset Management Practices':
                           // $(this).parent().next().text('Processes');
-                          $(this).parent().next().append('<input type="text" name="bal*'+key+'" style="width:150px" value="Process">');
+                          $(this).parent().next().append('<input type="text" name="bal*'+key+'" style="width:100%" value="Process">');
                           break;
                       case 'Deploy Fit for Purpose ICT Business Solutions':
                           // $(this).parent().next().text('Processes');
-                          $(this).parent().next().append('<input type="text" name="bal*'+key+'" style="width:150px" value="Process">');
+                          $(this).parent().next().append('<input type="text" name="bal*'+key+'" style="width:100%" value="Process">');
                           break;
                       case 'Create a High Performance Culture':
                           // $(this).parent().next().text('Processes');
-                          $(this).parent().next().append('<input type="text" name="bal*'+key+'" style="width:150px" value="Innovation, Growth & Learning">');
+                          $(this).parent().next().append('<input type="text" name="bal*'+key+'" style="width:100%" value="Innovation, Growth & Learning">');
                           break;
                       case 'Compliance with Reengineered Business Processes':
                           // $(this).parent().next().text('Innovation, Growth & Learning');
-                          $(this).parent().next().append('<input type="text" name="bal*'+key+'" style="width:150px" value="Innovation, Growth & Learning">');
+                          $(this).parent().next().append('<input type="text" name="bal*'+key+'" style="width:100%" value="Innovation, Growth & Learning">');
                           break;
                       default:
                           $(this).parent().next().text('');

@@ -1,7 +1,9 @@
 
 .Tbody{
-	background-image: url('/static/appraisal/images/perf.jpg');
+	background-image: url('/static/appraisal/images/img2.jpg');
 	height: 625px;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 
@@ -79,8 +81,9 @@ input[type=text], select {
 #appr_rating-guide{
   font-family: arial, sans-serif;
   width: 60%;
-  background-color: blue;
+  background-color: #CD853F;
   color:white;
+  font-weight: bold;
 }
 
 #Goal-Row:nth-child(even) {
@@ -152,13 +155,13 @@ input[type=text], select {
 
 #appr_form{
   float: right;
-  margin-top: 240px;
+  margin-top: 214px;
   margin-right: 270px;
   width: 300px;
   height: 70px;
   font-weight: bolder;
   font-size: 19px;
-  background-color: #00203FFF;
-  color: #fff;
+  background-color: #DEB887;
+  color:  #8B4513;
 }
 

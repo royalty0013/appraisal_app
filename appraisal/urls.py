@@ -1,7 +1,6 @@
 from django.conf.urls import url
 from goalsetting import views
 from appraisal import views
-
 # 
 urlpatterns = [
     url(r'^page/$', views.page, name='page' ),
