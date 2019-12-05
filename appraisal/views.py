@@ -392,7 +392,7 @@ def update_rec(request, pk):
 		upt_perf.developmental_recommendation = request.POST["developmental_recommendation*{}".format(perf_key)]
 		upt_perf.save()
 
-	ratings = Overall_rating.objects.filter(user=user, period_from=request.POST['period_from'], period_to=request.POST['period_to'])[0]
+	ratings = Behavioral_competence.objects.filter(user=user, period_from=request.POST['period_from'], period_to=request.POST['period_to'])[0]
 	ratings.save()
 
 	user_form = Appraisal_Form.objects.filter(user=user)[0]
