@@ -12,6 +12,7 @@ from django.db.models import Sum
 from django.conf import settings as st
 
 from appraisal.models import *
+from goalsetting.models import *
 # Create your views here.
 
 def appr_success_page(request):
@@ -372,7 +373,7 @@ def update_rec(request, pk):
 		upt_goal.weight = request.POST["weight*{}".format(key)]
 		upt_goal.appraisee_rating = request.POST["appraisee_rating*{}".format(key)]
 		upt_goal.appraiser_rating = request.POST["appraiser_rating*{}".format(key)] 
-		upt_goal.average = request.POST["average*{}".format(key)]
+		# upt_goal.average = request.POST["average*{}".format(key)]
 		upt_goal.score = request.POST["score*{}".format(key)]
 		upt_goal.save()
 
@@ -417,7 +418,7 @@ def update_rec2(request, pk):
 		upt_goal.weight = request.POST["weight*{}".format(key)]
 		upt_goal.appraisee_rating = request.POST["appraisee_rating*{}".format(key)]
 		upt_goal.appraiser_rating = request.POST["appraiser_rating*{}".format(key)] 
-		upt_goal.average = request.POST["average*{}".format(key)]
+		# upt_goal.average = request.POST["average*{}".format(key)]
 		upt_goal.score = request.POST["score*{}".format(key)]
 		upt_goal.save()
 
@@ -437,11 +438,14 @@ def update_rec2(request, pk):
 		upt_perf.developmental_recommendation = request.POST["developmental_recommendation*{}".format(perf_key)]
 		upt_perf.save()
 
-	ratings = Overall_rating.objects.filter(user=user, period_from=request.POST['period_from'], period_to=request.POST['period_to'])[0]
+	ratings = Behavioral_competence.objects.filter(user=user, period_from=request.POST['period_from'], period_to=request.POST['period_to'])[0]
 	ratings.save()
 
 	user_form = Appraisal_Form.objects.filter(user=user)[0]
 	user_form.save()
+
+	overall_scores = Overall_rating.objects.filter(user=user, period_from=request.POST['period_from'], period_to=request.POST['period_to'])[0]
+	overall_scores.save()
 
 	comments = Appr_comment.objects.filter(user=user, period_from=request.POST['period_from'], period_to=request.POST['period_to'])[0]
 	comments.reviewer_comment = request.POST['reviewer_comment']

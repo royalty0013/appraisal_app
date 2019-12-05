@@ -4,17 +4,17 @@
                 {% csrf_token %}
             <div style="float:left; margin-right:20px;" class="input_div">
                 <label for = "first-name" style="display: block;"> First Name<span style="color: red">*</span> </label>
-                <input placeholder={{gen_info.first_name}} align="justify" type="text" name="firstname" disabled>
+                <input value={{gen_info.first_name}} placeholder={{gen_info.first_name}} align="justify" type="text" name="firstname" disabled="disabled">
             </div>
 
             <div style="float:left; margin-right:20px;" class="input_div">
                 <label style="display: block;"> Middle Name<!-- <span style="color: red">*</span> --> </label>
-                <input placeholder={{ gen_info.middle_name}} align="justify" type="text" name="middlename" disabled>
+                <input  value={{gen_info.middle_name}} placeholder={{ gen_info.middle_name}} align="justify" type="text" name="middlename" disabled="disabled">
             </div>
 
             <div style="float:left;" class="input_div">
                 <label style="display: block;"> Last Name<span style="color: red">*</span> </label>
-                <input placeholder={{ gen_info.last_name}} align="justify" type="text" name="lastname" disabled>
+                <input value={{gen_info.last_name}} placeholder={{ gen_info.last_name}} align="justify" type="text" name="lastname" disabled="disabled">
             </div>
 
               <br style="clear:both;" />
@@ -22,13 +22,13 @@
             
             <div style="float:left; margin-right:20px; width: 44%; ">
                 <label style="display: block;"> Staff ID<span style="color: red">*</span> </label>
-                <input placeholder={{ gen_info.staff_id}} align="justify" type="text" name="staffid" style="width: 510px" disabled>
+                <input value={{gen_info.staff_id}} placeholder={{ gen_info.staff_id}} align="justify" type="text" name="staffid" style="width: 510px" disabled="disabled">
             </div>
 
 
             <div style="float:left; margin-right:20px; width: 45%; height: 80px; padding-top: 10px">
             <label style="display: block;"> Job Level<span style="color: red">*</span> </label>
-                <select name="position" placeholder={{ gen_info.position}} style="width: 517px" disabled>
+                <select name="position" placeholder={{ gen_info.position}} style="width: 517px" disabled="disabled">
                     <option value={{ gen_info.position}}>{{ gen_info.position}}</option>
                     <option value="AEDC3-General Manager">AEDC3-General Manager</option>
                     <option value="AEDC4-Senior Manager">AEDC4-Senior Manager</option>
@@ -46,7 +46,7 @@
 
             <div style="float:left; margin-right:20px; width: 45%; ">
             <label style="display: block;"> Unit<span style="color: red">*</span> </label>  
-                <select name="unit" placeholder={{ gen_info.unit}} align="justify" style="width: 510px" disabled>
+                <select name="unit" placeholder={{ gen_info.unit}} align="justify" style="width: 510px" disabled="disabled">
                     <option value={{ gen_info.unit}}>{{ gen_info.unit}}</option>
                     <option value="AEDC Change">AEDC Change</option>
                     <option value="Human Resources and Industrial Relations">Human Resources and Industrial Relations</option>
@@ -106,7 +106,7 @@
 
             <div style="float:left; margin-right:20px; width: 45%; ">
             <label style="display: block;"> Directorate <span style="color: red">*</span> </label>
-                <select name="directorate" placeholder={{ gen_info.directorate}} align="justify" style="width: 509px" disabled>
+                <select name="directorate" placeholder={{ gen_info.directorate}} align="justify" style="width: 509px" disabled="disabled">
                     <option value={{ gen_info.directorate}}>{{ gen_info.directorate}}</option>
                     <option value="Change Management and PMO">Change Management and PMO</option>
                     <option value="Projects">Projects</option>
@@ -125,20 +125,20 @@
             
             <div style="float:left; margin-right:20px; width: 45%;" >
             <label style="display: block;"> Designation<span style="color: red">*</span> </label>  
-                <input placeholder={{ gen_info.directorate}} align="justify" type="text" name="designation" style="width: 510px" disabled>
+                <input value={{gen_info.directorate}} placeholder={{ gen_info.directorate}} align="justify" type="text" name="designation" style="width: 510px" disabled="disabled">
 
             </div>
 
             <div style="float:left; margin-right:20px; width: 45%; ">
             <label style="display: block;"> Supervisor Name<span style="color: red">*</span> </label>  
-                <input placeholder={{ gen_info.supervisor_name}} align="justify" type="text" name="supervisor_name" style="width: 510px" disabled>
+                <input value={{gen_info.supervisor_name}} placeholder={{ gen_info.supervisor_name}} align="justify" type="text" name="supervisor_name" style="width: 510px" disabled="disabled">
             </div>
             <br style="clear:both;" />
             <br>
                
             <div style="float:left; margin-right:20px; width: 45%; ">
             <label style="display: block;"> Area Office<!-- <span style="color: red">*</span> --> </label> 
-              <select name="area_office" placeholder={{ gen_info.area_office }} align="justify" style="width: 510px" disabled>
+              <select name="area_office" placeholder={{ gen_info.area_office }} align="justify" style="width: 510px" disabled="disabled">
                     <option value={{ gen_info.area_office}}>{{ gen_info.area_office}}</option>
                     <option value="Gwagwalada">Gwagwalada</option>
                     <option value="Jabi">Jabi</option>
@@ -181,7 +181,7 @@
 
             <div style="float:left; margin-right:20px; width: 45%; ">
             <label style="display: block;"> Region <span style="color: red">*</span> </label>
-                <select name="region" id="dropdown" style="width: 510px" placeholder={{ gen_info.region}} disabled>
+                <select name="region" id="dropdown" style="width: 510px" placeholder={{ gen_info.region}} disabled="disabled">
                     <option value={{ gen_info.region}}>{{ gen_info.region}}</option>
                     <option value="FCT Central">FCT Central</option>
                     <option value="FCT North">FCT North</option>
@@ -246,7 +246,9 @@
                         <th id="Goal-id">Goal <span class="compulsory"> * </span></th>
                         <th id="Goal-id">Actual Result Achieved <span class="compulsory"> * </span></th>
                         <th id="Goal-id">Weight <span class="compulsory"> * </span></th>
-                        <th id="Goal-id">Rating <span class="compulsory"> * </span></th>
+                        <th id="Goal-id">Appraisee Rating <span class="compulsory"> * </span></th>
+                        <th id="Goal-id">Appraiser/Agreed Rating <span class="compulsory"> * </span> </th>
+                       <!--  <th id="Goal-id">Average <span class="compulsory"> * </span></th> -->
                         <th id="Goal-id">Score <span class="compulsory"> * </span></th>
                     </tr>
                 </thead>
@@ -259,22 +261,35 @@
                         <input type="hidden" name="key" value="{{goal.id}}">
                     <tr>
                         <!-- <td class="no">{{index}}</td> -->
-                        <td id="Goal-td" style="width: 30%"><textarea style="width: 100%; height: 100px"  name= 'goal*{{goal.id}}' disabled> {{ goal.goal}} </textarea></td>
+                        <td id="Goal-td" style="width: 30%"><textarea style="width: 100%; height: 100px"  name= 'goal*{{goal.id}}' disabled="disabled"> {{ goal.goal}} </textarea></td>
 
-                        <td id="Goal-td" style="width: 30%"><textarea style="width: 100%; height: 100px" name= 'actual_result*{{goal.id}}' disabled> {{ goal.actual_result}} </textarea></td>
+                        <td id="Goal-td" style="width: 30%"><textarea style="width: 100%; height: 100px" name= 'actual_result*{{goal.id}}' disabled="disabled"> {{ goal.actual_result}} </textarea></td>
 
-                        <td id="Goal-td"><input type="number" v-model="product.weight" class="weight" style="width: 100%; height: 100px" name='weight*{{goal.id}}' value={{ goal.weight }} disabled></td>
+                        <td id="Goal-td"><input type="number" v-model="product.weight" class="weight" style="width: 100%; height: 100px" name='weight*{{goal.id}}' value={{ goal.weight }} required></td>
 
                         <td id="Goal-td">
-                            <select v-model="product.selected" style="width: 100%" class="rating" name='rating*{{goal.id}}' disabled>
-                                <option value={{ goal.rating }} selected> {{ goal.rating }} </option>
+                            <select v-model="product.selected" style="width: 100%" class="appraisee_rating" name='appraisee_rating*{{goal.id}}' disabled="disabled">
+                                <option value={{ goal.appraisee_rating }}> {{ goal.appraisee_rating }} </option>
                                 <option value=4>E</option>
                                 <option value=3>M</option>
                                 <option value=2>PM</option>
                                 <option value=1>DM</option>
                             </select>
-                            </td> 
-                         <td id="Goal-td"><textarea style="width: 100%; height: 100px" name= 'score*{{goal.id}}' disabled> {{ goal.score }}</textarea></td>
+                        </td> 
+
+                        <td id="Goal-td">
+                            <select  style="width: 100%" class="appraiser_rating" name="appraiser_rating*{{ goal.id }}" disabled="disabled"> 
+                                <option value={{ goal.appraiser_rating }}> {{ goal.appraiser_rating }} </option>
+                                <option value=4>E</option>
+                                <option value=3>M</option>
+                                <option value=2>PM</option>
+                                <option value=1>DM</option>
+                            </select>
+                        </td>
+
+                       <!--  <td id="Goal-td"><textarea style="width: 100%; height: 100px" name= "average*{{goal.id}}"> {{ goal.average }} </textarea></td> -->
+
+                         <td id="Goal-td"><textarea style="width: 100%; height: 100px" name= 'score*{{goal.id}}' disabled="disabled"> {{ goal.score }}</textarea></td>
                         <td><i  class="fa fa-trash-o" @click="deleteRole(index)" value="Delete"></i></td>
                     </tr>
                      {% endfor %}
@@ -282,7 +297,7 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td><input type="text" v-model="sumSection_A_Total" name="goals_score" class="total" id="total_values" value={{ gen_info.goals_score}} placeholder={{ gen_info.goals_score}} disabled></td>
+                        <td><input type="text" v-model="sumSection_A_Total" name="goals_score" class="total" id="total_values" value={{ gen_info.goals_score}} placeholder={{ gen_info.goals_score}} disabled="disabled"></td>
                     </tr>
                 </tfoot>
             </table>
@@ -298,119 +313,187 @@
             <p> <b> Please note the following Scoring Guide for Section A:</b> <br>
                 1) Point obtained/Maximum point X weight = Score obtained on each Goal above. <br> 
                 2)Total Score above X 70 Divide by 100 = Overall Score in section A <br>
-                3)Therefore Total Score for Goals Achieved is: <b style="font-weight:18px"> [overall_ScoreSectionA] </b></p>
+                3)Therefore Total Score for Goals Achieved is: <b style="font-weight:18px"> {{ rating.section_A}} </b></p>
         </div>
 
         <div>
             <h4><strong>SECTION B: ASSESSMENT OF BEHAVIORAL COMPETENCES (30%)</strong></h4>
 
+            <table id="appr_rating-guide">
+            <thead>
+            <tr id="Goal-Row">
+                <th id="Goal-id">S/N</th>
+                <th id="Goal-id">Behavioral Competencies</th>
+                <th id="Goal-id">Definitions</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td id="Goal-td">1</td>
+                <td id="Goal-td">Job Effectiveness</td>
+                <td id="Goal-td">Able to multi task, Possesses knowledge and skills necessary to perform job; Delivers information effectively in a variety of formats to different stakeholders.</td>
+                </tr>
+                <tr>
+                <td id="Goal-td">2</td>
+                <td id="Goal-td">Trust and Integrity</td>
+                <td id="Goal-td">Maintains and exemplifies a reputation for honesty, candour, confidentiality, and fairness. </td>
+                </tr>
+                <tr>
+                <td id="Goal-td">3</td>
+                <td id="Goal-td">Supervision and Management</td>
+                <td id="Goal-td">Gives clear directions and communicates performance expectations. Coaches, counsels and evaluates employees; Identifies areas for and supports employee development opportunities and career growth; Adapts easily to changing business and operational needs. </td>
+                </tr>
+                 <tr>
+                <td id="Goal-td">4</td>
+                <td id="Goal-td">Dependability</td>
+                <td id="Goal-td">Is available for work on a consistent and timely basis with infrequent unplanned absences; Completes work in a timely manner. Meets commitment with minimal oversight </td>
+                </tr>
+                <tr>
+                <td id="Goal-td">5</td>
+                <td id="Goal-td">Collaboration and Team Work</td>
+                <td id="Goal-td">Consistently and proactively shares relevant information with others; Promotes team cooperation by valuing opinions and contributions of others; Manages conflict effectively.</td>
+                </tr>
+                <tr>
+                <td id="Goal-td">6</td>
+                <td id="Goal-td">Organizational Success</td>
+                <td id="Goal-td">Develops strategic action plans for practical use. Committed to continuous quality/process improvement. Committed to continuous learning. Is creative and innovative.</td>
+                </tr>
+                 <tr>
+                <td id="Goal-td">7</td>
+                <td id="Goal-td">Customer Orientation</td>
+                <td id="Goal-td">Demonstrates customer focus by seeking out, understanding, and responding to the needs of both internal (co-workers) and external customers; Always takes ownership for delivering high quality services; Effectively and professionally works with upset customers, solving their problems; Routinely seeks to secure quality, long-lasting customer relations</td>
+                </tr>
+                 <tr>
+                <td id="Goal-td">8</td>
+                <td id="Goal-td">Leadership Drive</td>
+                <td id="Goal-td">Exhibits resourcefulness, independent action and professional judgment that are position appropriate; Develop and acts on appropriate problem solving methods. Develops other employees. Identifies and remedies situations that require improvements at work.</td>
+                </tr>
+                <tr>
+                <td id="Goal-td">9</td>
+                <td id="Goal-td">Organizational Compliance and Safety</td>
+                <td id="Goal-td">Adheres and leads the team in complying with all AEDC safety standards. Demonstrates appropriate use of and respect for organization’s property and equipment; Complies with the organization’s policies, regulations, rules, and procedures</td>
+                </tr>
+                <tr>
+                <td id="Goal-td">10</td>
+                <td id="Goal-td">Diversity and Respect</td>
+                <td id="Goal-td">Demonstrates respect individual, culture and ethnic group to increase effectiveness of every unit and function; Influences organizational culture in ways that value and support diversity; Encourages and contributes to the establishment and execution of diversity management and inclusion programmes</td>
+                </tr>
+                <tr>
+                <td id="Goal-td">11</td>
+                <td id="Goal-td">Attendance/Punctuality</td>
+                <td id="Goal-td">Being able to complete a required  task or fulfill an obligation before or at a previously designated time and  present at work</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+
             <div>
             <label class="label_name"> Job Effectiveness <span class="compulsory"> * </span></label>
 
-            <input type="radio" name="job" v-model.number="point00" value="4" disabled> Exceeded (E=4) 
-            <input type="radio" name="job" v-model.number="point00" value="3" disabled> Met (M=3)
-            <input type="radio" name="job" v-model.number="point00" value="2" disabled> Partially Met (PM=2)
-            <input type="radio" name="job" v-model.number="point00" value="1" disabled> Did Not Meet (DM=1)
+            <input type="radio" name="job" v-model.number="point00" value="4" {% if behavior.job_effectiveness == 4 %} checked {% endif %} disabled="disabled"> Exceeded (E=4) 
+            <input type="radio" name="job" v-model.number="point00" value="3" {% if behavior.job_effectiveness == 3 %} checked {% endif %} disabled="disabled"> Met (M=3)
+            <input type="radio" name="job" v-model.number="point00" value="2" {% if behavior.job_effectiveness == 2 %} checked {% endif %} disabled="disabled"> Partially Met (PM=2)
+            <input type="radio" name="job" v-model.number="point00" value="1" {% if behavior.job_effectiveness == 1 %} checked {% endif %} disabled="disabled"> Did Not Meet (DM=1)
 
             </div>
             <br>
             <div>
             <label class="label_name"> Trust and Integrity <span class="compulsory"> * </span></label>
 
-            <input type="radio" name="trust" v-model.number="point01" value="4" disabled> Exceeded (E=4) 
-            <input type="radio" name="trust" v-model.number="point01" value="3" disabled> Met (M=3)
-            <input type="radio" name="trust" v-model.number="point01" value="2" disabled> Partially Met (PM=2)
-            <input type="radio" name="trust" v-model.number="point01" value="1" disabled> Did Not Meet (DM=1)
+            <!-- <input type="radio" name="trust" v-model.number="point01" value="4" {% if behavior.trust_and_integrity == 4 %} checked {% endif %}> Exceeded (E=4) --> 
+            <input type="radio" name="trust" v-model.number="point01" value="3" {% if behavior.trust_and_integrity == 3 %} checked {% endif %} disabled="disabled"> Met (M=3)
+           <!--  <input type="radio" name="trust" v-model.number="point01" value="2" {% if behavior.trust_and_integrity == 2 %} checked {% endif %}> Partially Met (PM=2) -->
+            <input type="radio" name="trust" v-model.number="point01" value="1" {% if behavior.trust_and_integrity == 1 %} checked {% endif %} disabled="disabled"> Did Not Meet (DM=1)
 
             </div>
             <br>
             <div>
             <label class="label_name"> Supervision and Management <span class="compulsory"> * </span></label>
 
-            <input type="radio" name="supervision" v-model.number="point02" value="4" disabled> Exceeded (E=4) 
-            <input type="radio" name="supervision" v-model.number="point02" value="3" disabled> Met (M=3)
-            <input type="radio" name="supervision" v-model.number="point02" value="2" disabled> Partially Met (PM=2)
-            <input type="radio" name="supervision" v-model.number="point02" value="1" disabled> Did Not Meet (DM=1)
+            <input type="radio" name="supervision" v-model.number="point02" value="4" {% if behavior.supervision == 4 %} checked {% endif %} disabled="disabled"> Exceeded (E=4) 
+            <input type="radio" name="supervision" v-model.number="point02" value="3" {% if behavior.supervision == 3 %} checked {% endif %} disabled="disabled"> Met (M=3)
+            <input type="radio" name="supervision" v-model.number="point02" value="2" {% if behavior.supervision == 2 %} checked {% endif %} disabled="disabled"> Partially Met (PM=2)
+            <input type="radio" name="supervision" v-model.number="point02" value="1" {% if behavior.supervision == 1 %} checked {% endif %} disabled="disabled"> Did Not Meet (DM=1)
 
             </div>
             <br>
             <div>
             <label class="label_name"> Dependability <span class="compulsory"> * </span></label>
 
-            <input type="radio" name="dependability" v-model.number="point03" value="4" disabled> Exceeded (E=4) 
-            <input type="radio" name="dependability" v-model.number="point03" value="3"disabled> Met (M=3)
-            <input type="radio" name="dependability" v-model.number="point03" value="2" disabled> Partially Met (PM=2)
-            <input type="radio" name="dependability" v-model.number="point03" value="1" disabled> Did Not Meet (DM=1)
+            <input type="radio" name="dependability" v-model.number="point03" value="4" {% if behavior.dependability == 4 %} checked {% endif %} disabled="disabled"> Exceeded (E=4) 
+            <input type="radio" name="dependability" v-model.number="point03" value="3" {% if behavior.dependability == 3 %} checked {% endif %} disabled="disabled"> Met (M=3)
+            <input type="radio" name="dependability" v-model.number="point03" value="2" {% if behavior.dependability == 2 %} checked {% endif %} disabled="disabled"> Partially Met (PM=2)
+            <input type="radio" name="dependability" v-model.number="point03" value="1" {% if behavior.dependability == 1 %} checked {% endif %} disabled="disabled"> Did Not Meet (DM=1)
 
             </div>
             <br>
             <div>
-            <label class="label_name"> Collaboration and Team Work <span class="compulsory" > * </span></label>
+            <label class="label_name"> Collaboration and Team Work <span class="compulsory"> * </span></label>
 
-            <input type="radio" name="collaboration" v-model.number="point04" value="4" disabled> Exceeded (E=4) 
-            <input type="radio" name="collaboration" v-model.number="point04" value="3"disabled> Met (M=3)
-            <input type="radio" name="collaboration" v-model.number="point04" value="2"> Partially Met (PM=2)
-            <input type="radio" name="collaboration" v-model.number="point04" value="1"> Did Not Meet (DM=1)
+            <input type="radio" name="collaboration" v-model.number="point04" value="4" {% if behavior.collaboration == 4 %} checked {% endif %} disabled="disabled"> Exceeded (E=4) 
+            <input type="radio" name="collaboration" v-model.number="point04" value="3" {% if behavior.collaboration == 3 %} checked {% endif %} disabled="disabled"> Met (M=3)
+            <input type="radio" name="collaboration" v-model.number="point04" value="2" {% if behavior.collaboration == 2 %} checked {% endif %} disabled="disabled"> Partially Met (PM=2)
+            <input type="radio" name="collaboration" v-model.number="point04" value="1" {% if behavior.collaboration == 1 %} checked {% endif %} disabled="disabled"> Did Not Meet (DM=1)
 
             </div>
             <br>
             <div>
             <label class="label_name"> Organizational Success <span class="compulsory"> * </span></label>
 
-            <input type="radio" name="org_success" v-model.number="point05" value="4"> Exceeded (E=4) 
-            <input type="radio" name="org_success" v-model.number="point05" value="3"> Met (M=3)
-            <input type="radio" name="org_success" v-model.number="point05" value="2"> Partially Met (PM=2)
-            <input type="radio" name="org_success" v-model.number="point05" value="1"> Did Not Meet (DM=1)
+            <input type="radio" name="org_success" v-model.number="point05" value="4" {% if behavior.organizational_success == 4 %} checked {% endif %} disabled="disabled"> Exceeded (E=4) 
+            <input type="radio" name="org_success" v-model.number="point05" value="3" {% if behavior.organizational_success == 3 %} checked {% endif %} disabled="disabled"> Met (M=3)
+            <input type="radio" name="org_success" v-model.number="point05" value="2" {% if behavior.organizational_success == 2 %} checked {% endif %} disabled="disabled"> Partially Met (PM=2)
+            <input type="radio" name="org_success" v-model.number="point05" value="1" {% if behavior.organizational_success == 1 %} checked {% endif %} disabled="disabled"> Did Not Meet (DM=1)
 
             </div>
             <br>
             <div>
             <label class="label_name"> Customer Orientation <span class="compulsory"> * </span></label>
 
-            <input type="radio" name="orientation" v-model.number="point06" value="4"> Exceeded (E=4) 
-            <input type="radio" name="orientation" v-model.number="point06" value="3"> Met (M=3)
-            <input type="radio" name="orientation" v-model.number="point06" value="2"> Partially Met (PM=2)
-            <input type="radio" name="orientation" v-model.number="point06" value="1"> Did Not Meet (DM=1)
+            <input type="radio" name="orientation" v-model.number="point06" value="4" {% if behavior.customer_orientation == 4 %} checked {% endif %} disabled="disabled"> Exceeded (E=4) 
+            <input type="radio" name="orientation" v-model.number="point06" value="3" {% if behavior.customer_orientation == 3 %} checked {% endif %} disabled="disabled"> Met (M=3)
+            <input type="radio" name="orientation" v-model.number="point06" value="2" {% if behavior.customer_orientation == 2 %} checked {% endif %} disabled="disabled"> Partially Met (PM=2)
+            <input type="radio" name="orientation" v-model.number="point06" value="1" {% if behavior.customer_orientation == 1 %} checked {% endif %} disabled="disabled"> Did Not Meet (DM=1)
 
             </div>
             <br>
             <div>
             <label class="label_name"> Leadership Drive <span class="compulsory"> * </span></label>
 
-            <input type="radio" name="leadership" v-model.number="point07" value="4"> Exceeded (E=4) 
-            <input type="radio" name="leadership" v-model.number="point07" value="3"> Met (M=3)
-            <input type="radio" name="leadership" v-model.number="point07" value="2"> Partially Met (PM=2)
-            <input type="radio" name="leadership" v-model.number="point07" value="1"> Did Not Meet (DM=1)
+            <input type="radio" name="leadership" v-model.number="point07" value="4" {% if behavior.leadership_drive == 4 %} checked {% endif %} disabled="disabled"> Exceeded (E=4) 
+            <input type="radio" name="leadership" v-model.number="point07" value="3" {% if behavior.leadership_drive == 3 %} checked {% endif %} disabled="disabled"> Met (M=3)
+            <input type="radio" name="leadership" v-model.number="point07" value="2" {% if behavior.leadership_drive == 2 %} checked {% endif %} disabled="disabled"> Partially Met (PM=2)
+            <input type="radio" name="leadership" v-model.number="point07" value="1" {% if behavior.leadership_drive == 1 %} checked {% endif %} disabled="disabled"> Did Not Meet (DM=1)
 
             </div>
             <br>
             <div>
             <label class="label_name"> Organizational Compliance and Safety <span class="compulsory"> * </span></label>
 
-            <input type="radio" name="compliance" v-model.number="point08" value="4"> Exceeded (E=4) 
-            <input type="radio" name="compliance" v-model.number="point08" value="3"> Met (M=3)
-            <input type="radio" name="compliance" v-model.number="point08" value="2"> Partially Met (PM=2)
-            <input type="radio" name="compliance" v-model.number="point08" value="1"> Did Not Meet (DM=1)
+            <input type="radio" name="compliance" v-model.number="point08" value="4" {% if behavior.compliance_and_safety == 4 %} checked {% endif %} disabled="disabled"> Exceeded (E=4) 
+            <input type="radio" name="compliance" v-model.number="point08" value="3" {% if behavior.compliance_and_safety == 3 %} checked {% endif %} disabled="disabled"> Met (M=3)
+            <input type="radio" name="compliance" v-model.number="point08" value="2" {% if behavior.compliance_and_safety == 2 %} checked {% endif %} disabled="disabled"> Partially Met (PM=2)
+            <input type="radio" name="compliance" v-model.number="point08" value="1" {% if behavior.compliance_and_safety == 1 %} checked {% endif %} disabled="disabled"> Did Not Meet (DM=1)
 
             </div>
             <br>
             <div>
             <label class="label_name"> Diversity and Respect <span class="compulsory"> * </span></label>
 
-            <input type="radio" name="diversity" v-model.number="point09" value="4"> Exceeded (E=4) 
-            <input type="radio" name="diversity" v-model.number="point09" value="3"> Met (M=3)
-            <input type="radio" name="diversity" v-model.number="point09" value="2"> Partially Met (PM=2)
-            <input type="radio" name="diversity" v-model.number="point09" value="1"> Did Not Meet (DM=1)
+            <input type="radio" name="diversity" v-model.number="point09" value="4" {% if behavior.diversity_and_respect == 4 %} checked {% endif %} disabled="disabled"> Exceeded (E=4) 
+            <input type="radio" name="diversity" v-model.number="point09" value="3" {% if behavior.diversity_and_respect == 3 %} checked {% endif %} disabled="disabled"> Met (M=3)
+            <input type="radio" name="diversity" v-model.number="point09" value="2" {% if behavior.diversity_and_respect == 2 %} checked {% endif %} disabled="disabled"> Partially Met (PM=2)
+            <input type="radio" name="diversity" v-model.number="point09" value="1" {% if behavior.diversity_and_respect == 1 %} checked {% endif %} disabled="disabled"> Did Not Meet (DM=1)
 
             </div>
             <br>
             <div>
             <label class="label_name"> Attendance/Punctuality<span class="compulsory"> * </span></label>
 
-            <input type="radio" name="attendance" v-model.number="point10" value="4"> Exceeded (E=4) 
-            <input type="radio" name="attendance" v-model.number="point10" value="3"> Met (M=3)
-            <input type="radio" name="attendance" v-model.number="point10" value="2"> Partially Met (PM=2)
-            <input type="radio" name="attendance" v-model.number="point10" value="1"> Did Not Meet (DM=1)
+            <input type="radio" name="attendance" v-model.number="point10" value="4" {% if behavior.attendance == 4 %} checked {% endif %} disabled="disabled"> Exceeded (E=4) 
+            <input type="radio" name="attendance" v-model.number="point10" value="3" {% if behavior.attendance == 3 %} checked {% endif %} disabled="disabled"> Met (M=3)
+            <input type="radio" name="attendance" v-model.number="point10" value="2" {% if behavior.attendance == 2 %} checked {% endif %} disabled="disabled"> Partially Met (PM=2)
+            <input type="radio" name="attendance" v-model.number="point10" value="1" {% if behavior.attendance == 1 %} checked {% endif %} disabled="disabled"> Did Not Meet (DM=1)
 
             </div>
 
@@ -420,7 +503,7 @@
             <div> -->
                 <p> <b> Section B Scoring Guide:</b> <br>
                 1) Total points obtained/Maximum Points  X 30<br>
-                2) Therefore Total Score for Behavioral Competencies is:<b style="font-weight:18px"> [sumSection_B_Total] </b>
+                2) Therefore Total Score for Behavioral Competencies is:<b style="font-weight:18px"> {{ rating.section_B}} </b>
                  </p>
             </div>
 
@@ -434,15 +517,15 @@
                 <tbody>
                 <tr style="background-color: white; color: black;">
                       <td id="Goal-td"> Section A </td>
-                      <td id="Goal-td"><input type="text" v-model=overall_ScoreSectionA name="overall_score_sectA" class="total"  value={{ rating.section_A}} placeholder={{ rating.section_A}} disabled></td>
+                      <td id="Goal-td"><input type="text" v-model=overall_ScoreSectionA name="overall_score_sectA" class="total"  value={{ rating.section_A}} placeholder={{ rating.section_A}} disabled="disabled"></td>
                   </tr>
                    <tr style="background-color: white; color: black;">
                       <td id="Goal-td">Section B </td>
-                      <td id="Goal-td"><input type="text" v-model=sumSection_B_Total name="overall_score_sectB" class="total"  value={{ rating.section_B}} placeholder={{ rating.section_B}} disabled></td>
+                      <td id="Goal-td"><input type="text" v-model=sumSection_B_Total name="overall_score_sectB" class="total"  value={{ rating.section_B}} placeholder={{ rating.section_B}} disabled="disabled"></td>
                   </tr>
                   <tr style="color: black;">
                       <td id="Goal-td"> <b> TOTAL </b></td>
-                      <td id="Goal-td"> <input type="text" v-model=grandTotal name="total_score" class="total" value={{ rating.total_score}} placeholder={{ rating.total_score}} disabled> </td>
+                      <td id="Goal-td"> <input type="text" v-model=grandTotal name="total_score" class="total" value={{ rating.total_score}} placeholder={{ rating.total_score}} disabled="disabled"> </td>
                   </tr>
                   </tbody>
               </table>
@@ -451,31 +534,31 @@
         <br>
 
         <div class="row">
-            <div class="col-sm-3">
-                <p> <b> Unsatisfactory (0-45%)</b> <br>
+            <div class="col-sm-2">
+                <p> <b> Unsatisfactory ( < 45%)</b> <br>
                     Does not meet the required performance standards in key aspects of the job <br><br> <b> Unacceptable Performance </b>
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <p> <b> Average (56-60%) </b><br>
                     Level of productivity and general effectiveness meets the high standards for this position. Quality and quantity of output are average <br><br>
                     <b> Improvement Needed </b>
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <p><b> Satisfactory (61-75%) </b><br>
-                    Meets the required performance standards in all aspects of the job and sometimes exceeds the standards <br><br>
+                    <b>Meets</b> the required performance standards in all aspects of the job and sometimes exceeds the standards <br><br>
                     <b> Sustain Performance </b>
             </div>
             <div class="col-sm-3">
                 <p><b> Exceptional (76-89%) </b><br>
-                    Meets All required performance standards and often exceeds the standards. <br><br>
+                   Meets All required performance standards and often exceeds the standards.<br><br>
                     <b> Certainly ready for higher responsibility </b>
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <p><b>Outstanding (90-100%)</b> <br>
-                    Consistently and significantly exceeded all performance standards and job requirements. Delivers outstanding standards. <br><br>
+                   Consistently and significantly <b>exceeds</b> all performance standards and job requirements. Delivers exceptional performance. <br><br>
                     <b> Ready and should be given Higher Responsibility. </b>
             </div>
         </div>
@@ -486,7 +569,8 @@
                 <thead>
                     <tr id="Goal-Row">
                         <th id="Goal-id">Accomplishment <span class="compulsory"> * </span></th>
-                        <th id="Goal-id">Business Impact <span class="compulsory"> * </span></th>
+                        <th id="Goal-id">Link to Strategic Focus <span class="compulsory"> * </span></th>
+                        <th id="Goal-id">Link to Balanced Score Card <span class="compulsory"> * </span>
                     </tr>
                 </thead>
 
@@ -495,10 +579,27 @@
 
                 <tbody v-for="(employee_key,index) in employee_keys" id="goals-tbody">
                     {% for accomplish in accomplishs %}
-                        <input type="hidden" name="key" value="{{accomplish.id}}">
+                        <input type="hidden" name="accomp_key" value="{{accomplish.id}}">
                     <tr>
-                        <td id="Goal-td"><textarea style="width: 650px; height: 100px"  name='accomplishment*{{accomplish.id}}' disabled> {{accomplish.accomplishment}}</textarea></td>
-                        <td id="Goal-td"><textarea style="width: 450px; height: 100px" name= 'business_impact*{{accomplish.id}}' disabled> {{accomplish.business_impact}}</textarea></td>
+                        <td id="Goal-td"><textarea style="width: 450px; height: 100px"  name='accomplishment*{{accomplish.id}}' disabled="disabled"> {{accomplish.accomplishment}}</textarea></td>
+
+                        <td id="Goal-td" width="350px">
+                            <select class="uptstrat-focus" name='strat*{{accomplish.id}}' style="width: 350px" disabled="disabled">
+                                <option value="{{accomplish.strategic_focus}}"> {{ accomplish.strategic_focus }} </option>
+                                <option value="Reduce ATC&C Loss">Reduce ATC&C Loss</option>
+                                <option value="Achieve Financial Viability">Achieve Financial Viability</option>
+                                <option value="Create a Customer Centric Organization">Create a Customer Centric Organization</option>
+                                <option value="Effective Regulatory & Stakeholders Engagement">Effective Regulatory & Stakeholders Engagement</option>
+                                <option value="Improve HSE Practices">Improve HSE Practices</option>
+                                <option value="Implement Prudent Asset Management Practices">Implement Prudent Asset Management Practices</option>
+                                <option value="Deploy Fit for Purpose ICT Business Solutions">Deploy Fit for Purpose ICT Business Solutions</option>
+                                <option value="Create a High Performance Culture">Create a High Performance Culture</option>
+                                <option value="Compliance with Reengineered Business Processes">Compliance with Reengineered Business Processes</option>
+                              </select>
+                        </td>
+
+                         <td id="Goal-td"><input type="text" style="width: 100%" name= 'bal*{{accomplish.id}}' align="Central" value="{{accomplish.balanced_scorecard}}" disabled="disabled"></td>
+
                         <td><i  class="fa fa-trash-o" @click="deleteSubRole(index)" value="Delete"></i></td>
                     </tr>
                     {% endfor %}
@@ -517,9 +618,7 @@
                 <thead>
                     <tr id="Goal-Row">
                         <th id="Goal-id">Key Strengths <span class="compulsory"> * </span></th>
-
                         <th id="Goal-id">Improvement Areas ( E.g. Coaching, Mentoring, On-the-Job training and formal trainings) <span class="compulsory"> * </span></th>
-
                         <th id="Goal-id">Developmental Recommendations (training/job rotation/job enlargement/Redeployment to another Function/Department/Location etc.)<span class="compulsory"> * </span></th>
                     </tr>
                 </thead>
@@ -529,13 +628,13 @@
 
                 <tbody v-for="(performance,index) in performances" id="goals-tbody">
                     {% for perf in perfs %}
-                        <input type="hidden" name="key" value="{{perf.id}}">
+                        <input type="hidden" name="perf_key" value="{{perf.id}}">
                     <tr>
-                        <td id="Goal-td"><textarea style="width: 250px; height: 100px"  name= 'key_strength*{{perf.id}}' disabled> {{perf.key_strength}} </textarea></td>
+                        <td id="Goal-td"><textarea style="width: 250px; height: 100px"  name= 'key_strength*{{perf.id}}' disabled="disabled"> {{perf.key_strength}} </textarea></td>
 
-                        <td id="Goal-td"><textarea style="width: 100%; height: 100px" name= 'improvement_area*{{perf.id}}' disabled> {{perf.improvement_area}} </textarea></td>
+                        <td id="Goal-td"><textarea style="width: 100%; height: 100px" name= 'improvement_area*{{perf.id}}' disabled="disabled"> {{perf.improvement_area}} </textarea></td>
 
-                         <td id="Goal-td"><textarea style="width: 100%; height: 100px" name= 'developmental_recommendation*{{perf.id}}' disabled> {{perf.developmental_recommendation}} </textarea></td>
+                         <td id="Goal-td"><textarea style="width: 100%; height: 100px" name= 'developmental_recommendation*{{perf.id}}' disabled="disabled"> {{perf.developmental_recommendation}} </textarea></td>
 
                         <td><i  class="fa fa-trash-o" @click="deleteChildRole(index)" value="Delete"></i></td>
                     </tr>
@@ -554,27 +653,27 @@
                     <td style="text-align: left"><h5><strong>Appraisee (Employee)<span style="color: red">*</span></strong></h5></td>
                     <td><input placeholder="{{ gen_info.appraisee_email }} "align="justify" type="email" name="appraisee_email" style="width: 265px" disabled></td>
 
-                    <td><textarea style="width: 300px; height: 80px; margin-left: 30px" value="{{ comment.appraisee_comment }}" placeholder="{{ comment.appraisee_comment }}" disabled></textarea></td>
+                    <td><textarea name="appraisee_comment" style="width: 300px; height: 80px; margin-left: 30px" value="{{ comment.appraisee_comment }}" placeholder="{{ comment.appraisee_comment }}" disabled></textarea></td>
                 </tr>
                 <tr>
                     <td style="text-align: left"><h5><strong>Appraiser (Line Manager)<span style="color: red">*</span></strong></h5></td>
                     <td><input placeholder="{{ gen_info.appraiser_email }}" align="justify" type="email" name="appraiser_email" style="width: 265px" disabled></td>
 
-                    <td><textarea style="width: 300px; height: 80px; margin-left: 30px" value="{{ comment.appraiser_comment }}" placeholder="{{ comment.appraiser_comment }}" disabled></textarea></td>
+                    <td><textarea name="appraiser_comment" style="width: 300px; height: 80px; margin-left: 30px" placeholder="{{ comment.appraiser_comment }}" disabled> {{ comment.appraiser_comment }} </textarea></td>
                 </tr>
                 <tr>
                     <td style="text-align: left"><h5><strong>Reviewer <span style="color: red">*</span></strong></h5></td>
                     <td><input placeholder="{{ gen_info.reviewer_email }}" align="justify" type="email" name="reviewer_email" style="width: 265px" disabled></td>
 
-                    <td><textarea style="width: 300px; height: 80px; margin-left: 30px" value="{{ comment.reviewer_comment }}" placeholder="{{ comment.reviewer_comment }}" disabled></textarea></td>
+                    <td><textarea name="reviewer_comment" style="width: 300px; height: 80px; margin-left: 30px" placeholder="{{ comment.reviewer_comment }}" disabled="disabled"> {{ comment.reviewer_comment }}</textarea></td>
                 </tr>
             </table>
-            
-        </div>
-          
+            <input type="submit" value="Update" style="display: inline-block; background-color:#000080; color: #fff;">
+            <div style=" display:inline-block;background-color:#000080; border: 2px outset #999da0; height: 24px;"> <a href="{{link}}" style="color: #fff"> Approved </a> </div>
+        </div>    
+
 </form>
 </div>
-
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
     <script>

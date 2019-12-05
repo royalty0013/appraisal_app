@@ -265,7 +265,7 @@
 
                         <td id="Goal-td" style="width: 30%"><textarea style="width: 100%; height: 100px" name= 'actual_result*{{goal.id}}' required> {{ goal.actual_result}} </textarea></td>
 
-                        <td id="Goal-td"><input type="number" v-model="product.weight" class="weight" style="width: 100%; height: 100px" name='weight*{{goal.id}}' value={{ goal.weight }} required></td>
+                        <td id="Goal-td"><input type="number" v-model="product.weight" class="weight1" style="width: 100%; height: 100px" name='weight*{{goal.id}}' value={{ goal.weight }} required></td>
 
                         <td id="Goal-td">
                             <select v-model="product.selected" style="width: 100%" class="appraisee_rating" name='appraisee_rating*{{goal.id}}' required>
@@ -289,7 +289,8 @@
 
                        <!--  <td id="Goal-td"><textarea style="width: 100%; height: 100px" name= "average*{{goal.id}}"> {{ goal.average }} </textarea></td> -->
 
-                         <td id="Goal-td"><textarea style="width: 100%; height: 100px" name= 'score*{{goal.id}}' required> {{ goal.score }}</textarea></td>
+                         <td id="Goal-td"><textarea style="width: 100%; height: 100px" name= 'score*{{goal.id}}' required> {{goal.score}} </textarea></td>
+
                         <td><i  class="fa fa-trash-o" @click="deleteRole(index)" value="Delete"></i></td>
                     </tr>
                      {% endfor %}
@@ -579,11 +580,11 @@
                     {% for accomplish in accomplishs %}
                         <input type="hidden" name="accomp_key" value="{{accomplish.id}}">
                     <tr>
-                        <td id="Goal-td"><textarea style="width: 450px; height: 100px"  name='accomplishment*{{accomplish.id}}' required> {{accomplish.accomplishment}}</textarea></td>
+                        <td id="Goal-td"><textarea style="width: 450px; height: 100px"  name='accomplishment*{{accomplish.id}}' required> {{accomplish.accomplishment}} </textarea></td>
 
                         <td id="Goal-td" width="350px">
                             <select class="uptstrat-focus" name='strat*{{accomplish.id}}' style="width: 350px" required>
-                                <option value="accomplish.strategic_focus"> {{ accomplish.strategic_focus }} </option>
+                                <option value="{{accomplish.strategic_focus}}"> {{ accomplish.strategic_focus }} </option>
                                 <option value="Reduce ATC&C Loss">Reduce ATC&C Loss</option>
                                 <option value="Achieve Financial Viability">Achieve Financial Viability</option>
                                 <option value="Create a Customer Centric Organization">Create a Customer Centric Organization</option>
@@ -673,7 +674,7 @@
 </form>
 </div>
 
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
     <script>
         var vm = new Vue({
@@ -693,9 +694,9 @@
             point09:"",
             point10:"",
             products:[{
-                weight:0,
+                weight:{{ goal.weight }},
                 desc:'',
-                selected:0              
+                selected:0,             
             }],
             employee_keys:[{
                 weight:0,
@@ -834,4 +835,4 @@
 </script>
 
 
-         -->
+        
