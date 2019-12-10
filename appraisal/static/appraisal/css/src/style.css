@@ -2,8 +2,12 @@
 .Tbody{
 	background-image: url('/static/appraisal/images/img2.jpg');
 	height: 625px;
-  background-repeat: no-repeat;
+   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
+  background-size: 100%;
+  overflow: hidden;
+
 }
 
 
@@ -155,8 +159,8 @@ input[type=text], select {
 
 #appr_form{
   float: right;
-  margin-top: 214px;
-  margin-right: 270px;
+  margin-top: 10px;
+  margin-right: 510px;
   width: 300px;
   height: 70px;
   font-weight: bolder;

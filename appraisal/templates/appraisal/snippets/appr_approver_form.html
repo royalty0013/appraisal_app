@@ -248,7 +248,7 @@
                         <th id="Goal-id">Weight <span class="compulsory"> * </span></th>
                         <th id="Goal-id">Appraisee Rating <span class="compulsory"> * </span></th>
                         <th id="Goal-id">Appraiser/Agreed Rating <span class="compulsory"> * </span> </th>
-                      <!--   <th id="Goal-id">Average <span class="compulsory"> * </span></th> -->
+                        <th id="Goal-id">Agreed Rating <span class="compulsory"> * </span></th>
                         <th id="Goal-id">Score <span class="compulsory"> * </span></th>
                     </tr>
                 </thead>
@@ -265,7 +265,7 @@
 
                         <td id="Goal-td" style="width: 30%"><textarea style="width: 100%; height: 100px" name= 'actual_result*{{goal.id}}' required> {{ goal.actual_result}} </textarea></td>
 
-                        <td id="Goal-td"><input type="number" v-model="product.weight" class="weight1" style="width: 100%; height: 100px" name='weight*{{goal.id}}' value={{ goal.weight }} required></td>
+                        <td id="Goal-td"><input type="number" v-model="product.weight" class="weight" style="width: 100%; height: 100px" name='weight*{{goal.id}}' value={{ goal.weight }} required></td>
 
                         <td id="Goal-td">
                             <select v-model="product.selected" style="width: 100%" class="appraisee_rating" name='appraisee_rating*{{goal.id}}' required>
@@ -278,7 +278,7 @@
                         </td> 
 
                         <td id="Goal-td">
-                            <select  style="width: 100%" class="appraiser_rating" name="appraiser_rating*{{ goal.id }}" required="required"> 
+                            <select v-model="product.supervisor"  style="width: 100%" class="appraiser_rating" name="appraiser_rating*{{ goal.id }}" required="required"> 
                                 <option value={{ goal.appraiser_rating }}> {{ goal.appraiser_rating }} </option>
                                 <option value=4>E</option>
                                 <option value=3>M</option>
@@ -287,9 +287,15 @@
                             </select>
                         </td>
 
-                       <!--  <td id="Goal-td"><textarea style="width: 100%; height: 100px" name= "average*{{goal.id}}"> {{ goal.average }} </textarea></td> -->
+                        <td id="Goal-td"><textarea style="width: 100%; height: 100px" name= "agreed_rating*{{goal.id}}"> {{ goal.agreed_rating }} </textarea></td>
 
-                         <td id="Goal-td"><textarea style="width: 100%; height: 100px" name= 'score*{{goal.id}}' required> {{goal.score}} </textarea></td>
+                         <td id="Goal-td"><textarea style="width: 100%; height: 100px" name= 'score*{{goal.id}}' required> </textarea></td>
+
+                         <td id="Goal-td"><span>  [test_data] : [(product.supervisor/4)*product.weight]  </span></td>
+
+
+                         
+
 
                         <td><i  class="fa fa-trash-o" @click="deleteRole(index)" value="Delete"></i></td>
                     </tr>
@@ -320,76 +326,9 @@
         <div>
             <h4><strong>SECTION B: ASSESSMENT OF BEHAVIORAL COMPETENCES (30%)</strong></h4>
 
-            <table id="appr_rating-guide">
-            <thead>
-            <tr id="Goal-Row">
-                <th id="Goal-id">S/N</th>
-                <th id="Goal-id">Behavioral Competencies</th>
-                <th id="Goal-id">Definitions</th>
-            </tr>
-            </thead>
-            <tbody>
-                <tr>
-                <td id="Goal-td">1</td>
-                <td id="Goal-td">Job Effectiveness</td>
-                <td id="Goal-td">Able to multi task, Possesses knowledge and skills necessary to perform job; Delivers information effectively in a variety of formats to different stakeholders.</td>
-                </tr>
-                <tr>
-                <td id="Goal-td">2</td>
-                <td id="Goal-td">Trust and Integrity</td>
-                <td id="Goal-td">Maintains and exemplifies a reputation for honesty, candour, confidentiality, and fairness. </td>
-                </tr>
-                <tr>
-                <td id="Goal-td">3</td>
-                <td id="Goal-td">Supervision and Management</td>
-                <td id="Goal-td">Gives clear directions and communicates performance expectations. Coaches, counsels and evaluates employees; Identifies areas for and supports employee development opportunities and career growth; Adapts easily to changing business and operational needs. </td>
-                </tr>
-                 <tr>
-                <td id="Goal-td">4</td>
-                <td id="Goal-td">Dependability</td>
-                <td id="Goal-td">Is available for work on a consistent and timely basis with infrequent unplanned absences; Completes work in a timely manner. Meets commitment with minimal oversight </td>
-                </tr>
-                <tr>
-                <td id="Goal-td">5</td>
-                <td id="Goal-td">Collaboration and Team Work</td>
-                <td id="Goal-td">Consistently and proactively shares relevant information with others; Promotes team cooperation by valuing opinions and contributions of others; Manages conflict effectively.</td>
-                </tr>
-                <tr>
-                <td id="Goal-td">6</td>
-                <td id="Goal-td">Organizational Success</td>
-                <td id="Goal-td">Develops strategic action plans for practical use. Committed to continuous quality/process improvement. Committed to continuous learning. Is creative and innovative.</td>
-                </tr>
-                 <tr>
-                <td id="Goal-td">7</td>
-                <td id="Goal-td">Customer Orientation</td>
-                <td id="Goal-td">Demonstrates customer focus by seeking out, understanding, and responding to the needs of both internal (co-workers) and external customers; Always takes ownership for delivering high quality services; Effectively and professionally works with upset customers, solving their problems; Routinely seeks to secure quality, long-lasting customer relations</td>
-                </tr>
-                 <tr>
-                <td id="Goal-td">8</td>
-                <td id="Goal-td">Leadership Drive</td>
-                <td id="Goal-td">Exhibits resourcefulness, independent action and professional judgment that are position appropriate; Develop and acts on appropriate problem solving methods. Develops other employees. Identifies and remedies situations that require improvements at work.</td>
-                </tr>
-                <tr>
-                <td id="Goal-td">9</td>
-                <td id="Goal-td">Organizational Compliance and Safety</td>
-                <td id="Goal-td">Adheres and leads the team in complying with all AEDC safety standards. Demonstrates appropriate use of and respect for organization’s property and equipment; Complies with the organization’s policies, regulations, rules, and procedures</td>
-                </tr>
-                <tr>
-                <td id="Goal-td">10</td>
-                <td id="Goal-td">Diversity and Respect</td>
-                <td id="Goal-td">Demonstrates respect individual, culture and ethnic group to increase effectiveness of every unit and function; Influences organizational culture in ways that value and support diversity; Encourages and contributes to the establishment and execution of diversity management and inclusion programmes</td>
-                </tr>
-                <tr>
-                <td id="Goal-td">11</td>
-                <td id="Goal-td">Attendance/Punctuality</td>
-                <td id="Goal-td">Being able to complete a required  task or fulfill an obligation before or at a previously designated time and  present at work</td>
-                </tr>
-            </tbody>
-        </table>
-        <br>
-
             <div>
             <label class="label_name"> Job Effectiveness <span class="compulsory"> * </span></label>
+            <b style="color: #CD853F"> Able to multi task, Possesses knowledge and skills necessary to perform job; Delivers information effectively in a variety of formats to different stakeholders.</b> </br>
 
             <input type="radio" name="job" v-model.number="point00" value="4" {% if behavior.job_effectiveness == 4 %} checked {% endif %}> Exceeded (E=4) 
             <input type="radio" name="job" v-model.number="point00" value="3" {% if behavior.job_effectiveness == 3 %} checked {% endif %}> Met (M=3)
@@ -400,6 +339,7 @@
             <br>
             <div>
             <label class="label_name"> Trust and Integrity <span class="compulsory"> * </span></label>
+            <b style="color: #CD853F"> Maintains and exemplifies a reputation for honesty, candour, confidentiality, and fairness.</b> </br>
  
             <input type="radio" name="trust" v-model.number="point01" value="3" {% if behavior.trust_and_integrity == 3 %} checked {% endif %}> Met (M=3)
             <input type="radio" name="trust" v-model.number="point01" value="1" {% if behavior.trust_and_integrity == 1 %} checked {% endif %}> Did Not Meet (DM=1)
@@ -408,6 +348,7 @@
             <br>
             <div>
             <label class="label_name"> Supervision and Management <span class="compulsory"> * </span></label>
+            <b style="color: #CD853F"> Gives clear directions and communicates performance expectations. Coaches, counsels and evaluates employees; Identifies areas for and supports employee development opportunities and career growth; Adapts easily to changing business and operational needs.</b> </br>
 
             <input type="radio" name="supervision" v-model.number="point02" value="4" {% if behavior.supervision == 4 %} checked {% endif %}> Exceeded (E=4) 
             <input type="radio" name="supervision" v-model.number="point02" value="3" {% if behavior.supervision == 3 %} checked {% endif %}> Met (M=3)
@@ -418,6 +359,7 @@
             <br>
             <div>
             <label class="label_name"> Dependability <span class="compulsory"> * </span></label>
+            <b style="color: #CD853F"> Is available for work on a consistent and timely basis with infrequent unplanned absences; Completes work in a timely manner. Meets commitment with minimal oversight</b> </br>
 
             <input type="radio" name="dependability" v-model.number="point03" value="4" {% if behavior.dependability == 4 %} checked {% endif %}> Exceeded (E=4) 
             <input type="radio" name="dependability" v-model.number="point03" value="3" {% if behavior.dependability == 3 %} checked {% endif %}> Met (M=3)
@@ -428,6 +370,7 @@
             <br>
             <div>
             <label class="label_name"> Collaboration and Team Work <span class="compulsory"> * </span></label>
+            <b style="color: #CD853F"> Consistently and proactively shares relevant information with others; Promotes team cooperation by valuing opinions and contributions of others; Manages conflict effectively.</b> </br>
 
             <input type="radio" name="collaboration" v-model.number="point04" value="4" {% if behavior.collaboration == 4 %} checked {% endif %}> Exceeded (E=4) 
             <input type="radio" name="collaboration" v-model.number="point04" value="3" {% if behavior.collaboration == 3 %} checked {% endif %}> Met (M=3)
@@ -438,6 +381,7 @@
             <br>
             <div>
             <label class="label_name"> Organizational Success <span class="compulsory"> * </span></label>
+            <b style="color: #CD853F"> Develops strategic action plans for practical use. Committed to continuous quality/process improvement. Committed to continuous learning. Is creative and innovative.</b> </br>
 
             <input type="radio" name="org_success" v-model.number="point05" value="4" {% if behavior.organizational_success == 4 %} checked {% endif %}> Exceeded (E=4) 
             <input type="radio" name="org_success" v-model.number="point05" value="3" {% if behavior.organizational_success == 3 %} checked {% endif %}> Met (M=3)
@@ -448,6 +392,7 @@
             <br>
             <div>
             <label class="label_name"> Customer Orientation <span class="compulsory"> * </span></label>
+            <b style="color: #CD853F"> Demonstrates customer focus by seeking out, understanding, and responding to the needs of both internal (co-workers) and external customers; Always takes ownership for delivering high quality services; Effectively and professionally works with upset customers, solving their problems; Routinely seeks to secure quality, long-lasting customer relations</b> </br>
 
             <input type="radio" name="orientation" v-model.number="point06" value="4" {% if behavior.customer_orientation == 4 %} checked {% endif %}> Exceeded (E=4) 
             <input type="radio" name="orientation" v-model.number="point06" value="3" {% if behavior.customer_orientation == 3 %} checked {% endif %}> Met (M=3)
@@ -458,6 +403,7 @@
             <br>
             <div>
             <label class="label_name"> Leadership Drive <span class="compulsory"> * </span></label>
+            <b style="color: #CD853F"> Exhibits resourcefulness, independent action and professional judgment that are position appropriate; Develop and acts on appropriate problem solving methods. Develops other employees. Identifies and remedies situations that require improvements at work.</b></br>
 
             <input type="radio" name="leadership" v-model.number="point07" value="4" {% if behavior.leadership_drive == 4 %} checked {% endif %}> Exceeded (E=4) 
             <input type="radio" name="leadership" v-model.number="point07" value="3" {% if behavior.leadership_drive == 3 %} checked {% endif %}> Met (M=3)
@@ -468,6 +414,7 @@
             <br>
             <div>
             <label class="label_name"> Organizational Compliance and Safety <span class="compulsory"> * </span></label>
+            <b style="color: #CD853F"> Adheres and leads the team in complying with all AEDC safety standards. Demonstrates appropriate use of and respect for organization’s property and equipment; Complies with the organization’s policies, regulations, rules, and procedures</b></br>
 
             <input type="radio" name="compliance" v-model.number="point08" value="4" {% if behavior.compliance_and_safety == 4 %} checked {% endif %}> Exceeded (E=4) 
             <input type="radio" name="compliance" v-model.number="point08" value="3" {% if behavior.compliance_and_safety == 3 %} checked {% endif %}> Met (M=3)
@@ -478,6 +425,7 @@
             <br>
             <div>
             <label class="label_name"> Diversity and Respect <span class="compulsory"> * </span></label>
+            <b style="color: #CD853F"> Demonstrates respect individual, culture and ethnic group to increase effectiveness of every unit and function; Influences organizational culture in ways that value and support diversity; Encourages and contributes to the establishment and execution of diversity management and inclusion programmes</b></br>
 
             <input type="radio" name="diversity" v-model.number="point09" value="4" {% if behavior.diversity_and_respect == 4 %} checked {% endif %}> Exceeded (E=4) 
             <input type="radio" name="diversity" v-model.number="point09" value="3" {% if behavior.diversity_and_respect == 3 %} checked {% endif %}> Met (M=3)
@@ -488,6 +436,7 @@
             <br>
             <div>
             <label class="label_name"> Attendance/Punctuality<span class="compulsory"> * </span></label>
+            <b style="color: #CD853F"> Being able to complete a required  task or fulfill an obligation before or at a previously designated time and  present at work</b></br>
 
             <input type="radio" name="attendance" v-model.number="point10" value="4" {% if behavior.attendance == 4 %} checked {% endif %}> Exceeded (E=4) 
             <input type="radio" name="attendance" v-model.number="point10" value="3" {% if behavior.attendance == 3 %} checked {% endif %}> Met (M=3)
@@ -550,7 +499,7 @@
                     <b> Sustain Performance </b>
             </div>
             <div class="col-sm-3">
-                <p><b> Exceptional (76-89%) </b><br>
+                <p><b> Excellent (76-89%) </b><br>
                    Meets All required performance standards and often exceeds the standards. <br>
                     <b> Certainly ready for higher responsibility </b>
             </div>
@@ -681,6 +630,7 @@
         delimiters: ["[","]"],
         el: '#app',
         data: {
+            test_data:"working",
             selected:"",
             point00:"",
             point01:"",
@@ -694,9 +644,10 @@
             point09:"",
             point10:"",
             products:[{
-                weight:{{ goal.weight }},
+                weight:"",
                 desc:'',
-                selected:0,             
+                selected:0,
+                supervisor:0             
             }],
             employee_keys:[{
                 weight:0,
@@ -716,7 +667,7 @@
       computed:{
         sumSection_A_Total(){
             return this.products.reduce(function(carry,product){
-              return carry + (product.weight)*(product.selected/4);
+              return carry + (product.weight)*(product.supervisor/4);
           }, 0);
         },
 

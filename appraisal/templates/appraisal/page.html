@@ -11,12 +11,44 @@
 
 <p style="font-weight: bold; margin-left: 90px; font-size: 17px; color:#DEB887; margin-top: 15px;"> Welcome {{request.user.first_name | title}} {{request.user.last_name | title}} </p>
 
-	<div>
+
+		<!-- </div> -->
+
+
+
+<form action="{% url 'appraisal_homepage' %}">
+	<div style="margin-top: 190px; margin-left: 390px;">
+		<div class="uk-child-width-1-2@s uk-flex-center" uk-grid style="margin-top: -100px; margin-right: 380px;">
+        <!-- <div class="uk-card uk-card-default uk-card-large uk-card-body"> -->
+        	<!-- <div class="uk-alert-success" uk-alert> -->
+    			<a class="uk-alert-close" uk-close></a>
+   				<p style="color: red;"> {{period_error}}</p>
+			<!-- </div> -->
+
+		</div> <br><br>
 		<!-- <button id="g_setting"> GOAL SETTING FORM</button> -->
+		<div class="uk-inline" style="margin-top: -40px">
+			<label style="color: #800000; font-weight: bold;"> GOAL START DATE</label>
+    		<span class="uk-form-icon" uk-icon="icon: clock" style="padding-top: 21px"></span>
+    		<input class="uk-input" type="date" name="start_date" required="required">
+		</div>
 
-		<a href="{% url 'appraisal_homepage' %}"> <button id="appr_form"> CLICK HERE TO BEGIN </button> </a>
+		<div class="uk-inline" style="margin-top: -40px">
+			<label style="color: #800000; font-weight: bold;"> GOAL END DATE</label>
+    		<span class="uk-form-icon" uk-icon="icon: clock" style="padding-top: 21px"></span>
+    		<input class="uk-input" type="date" name="end_date" required="required">
+		</div>
+		</div>
 
-	</div>
+			<div>
+                <input id="appr_form" type="submit" value="CLICK HERE TO BEGIN">
+            </div>
+
+		<!-- <a href="{% url 'appraisal_homepage' %}"> <button id="appr_form"> CLICK HERE TO BEGIN </button> </a> -->
+
+	</form>
+
+	
 
 </body>
 

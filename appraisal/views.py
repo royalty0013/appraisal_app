@@ -15,6 +15,10 @@ from appraisal.models import *
 from goalsetting.models import *
 # Create your views here.
 
+def index(request):
+	context = {}
+	return render(request, 'appraisal/index.html', context)
+
 def appr_success_page(request):
 	return render(request, 'appraisal/appr_success_page.html')
 
@@ -26,6 +30,26 @@ def reviewer_suc_page(request):
 
 def page(request):
 	return render(request, 'appraisal/page.html')
+
+def login_process(request):
+	context = {}
+	username = request.POST['username']
+	password = request.POST['password']
+
+	if not username.endswith('@abujaelectricity.com'):
+		username = username+'@abujaelectricity.com'
+	# print(username)
+
+	ldap_login = ldapLogin(username,password)
+	if ldap_login == True:
+		user = createOrGetUser(username)
+		user.backend = 'django.contrib.auth.backends.ModelBackend'
+		login(request,user)
+		return HttpResponseRedirect(reverse('page'))
+
+	else:
+		context['error']="Invalid Username Or Password. Please make sure you are on AEDC network"
+		return render(request, 'appraisal/index.html', context)
 
 
 def appr_form(request):
@@ -114,7 +138,7 @@ def get_appr_info(request):
 	weight = request.POST.getlist('weight')
 	appraisee_rating = request.POST.getlist('appraisee_rating')
 	appraiser_rating = request.POST.getlist('appraiser_rating')
-	# average = request.POST.getlist('average')
+	agreed_rating = request.POST.getlist('agreed_rating')
 	score = request.POST.getlist('score')
 
 	for i, val in enumerate(goal):
@@ -172,6 +196,7 @@ def get_performance_info(request):
 def appr_handler(request):
 	context = {}
 	context['appraisee_success'] = 'Appraisal form has been submitted for approval'
+
 	if request.method == 'POST':
 		appr_form_model = appr_form(request)
 		appr_period_model = appr_period(request)
@@ -214,7 +239,21 @@ def appr_handler(request):
 		
 
 	elif request.method == 'GET':
-		return render(request, 'appraisal/appraisal_page.html')
+		user=request.user
+		start_date = request.GET['start_date']
+		end_date = request.GET['end_date']
+
+		try:
+			goalForm = Goal_Form.objects.filter(user=user)[0]
+			goalInfo = goal_info.objects.filter(user=user, period_from=start_date, period_to=end_date)[0]
+
+			context['goalForm'] = goalForm
+			context['goalInfo'] = goalInfo
+			return render(request, 'appraisal/appraisal_page.html', context)
+
+		except IndexError as e:
+			context['period_error'] = 'Invalid goal period, please check the correct goal period inputted on your last goal setting'
+			return render(request, 'appraisal/page.html', context)
 
 
 def get_appr_details(request, user, period_from, period_to):

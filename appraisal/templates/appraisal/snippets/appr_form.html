@@ -4,17 +4,17 @@
                 {% csrf_token %}
             <div style="float:left; margin-right:20px;" class="input_div">
                 <label for = "first-name" style="display: block;"> First Name<span style="color: red">*</span> </label>
-                <input placeholder="First Name" align="justify" type="text" name="firstname" required>
+            <input type="text" name="firstname" align="justify" value="{{ goalForm.first_name }}" required>
             </div>
 
             <div style="float:left; margin-right:20px;" class="input_div">
                 <label style="display: block;"> Middle Name<!-- <span style="color: red">*</span> --> </label>
-                <input placeholder="Middle Name"align="justify" type="text" name="middlename" >
+                <input value="{{ goalForm.middle_name }}" align="justify" type="text" name="middlename" >
             </div>
 
             <div style="float:left;" class="input_div">
                 <label style="display: block;"> Last Name<span style="color: red">*</span> </label>
-                <input placeholder="Last Name"align="justify" type="text" name="lastname" required>
+                <input value="{{ goalForm.last_name }}" align="justify" type="text" name="lastname" required>
             </div>
 
               <br style="clear:both;" />
@@ -22,14 +22,14 @@
             
             <div style="float:left; margin-right:20px; width: 44%; ">
                 <label style="display: block;"> Staff ID<span style="color: red">*</span> </label>
-                <input placeholder="Staff ID" align="justify" type="text" name="staffid" style="width: 510px" required>
+                <input value="{{ goalForm.staff_id }}" align="justify" type="text" name="staffid" style="width: 510px" required>
             </div>
 
 
             <div style="float:left; margin-right:20px; width: 45%; height: 80px; padding-top: 10px">
             <label style="display: block;"> Job Level<span style="color: red">*</span> </label>
-                <select name="position" placeholder="Job Level" style="width: 517px" required>
-                    <option value="" disabled selected>Job Level</option>
+                <select name="position"  style="width: 517px" required>
+                    <option value="{{ goalForm.position }}"> {{ goalForm.position }} </option>
                     <option value="AEDC3-General Manager">AEDC3-General Manager</option>
                     <option value="AEDC4-Senior Manager">AEDC4-Senior Manager</option>
                     <option value="AEDC5-Manager">AEDC5-Manager</option>
@@ -47,7 +47,7 @@
             <div style="float:left; margin-right:20px; width: 45%; ">
             <label style="display: block;"> Unit<span style="color: red">*</span> </label>  
                 <select name="unit" placeholder="Unit" align="justify" style="width: 510px" required>
-                    <option value="" disabled selected >Unit</option>
+                    <option value="{{ goalForm.unit }}" > {{ goalForm.unit }} </option>
                     <option value="AEDC Change">AEDC Change</option>
                     <option value="Human Resources and Industrial Relations">Human Resources and Industrial Relations</option>
                     <option value="Billing">Billing</option>
@@ -107,7 +107,7 @@
             <div style="float:left; margin-right:20px; width: 45%; ">
             <label style="display: block;"> Directorate <span style="color: red">*</span> </label>
                 <select name="directorate" placeholder="directorate"align="justify" style="width: 509px" required>
-                    <option value="" disabled selected>Directorate</option>
+                    <option value="{{ goalForm.directorate }}">{{ goalForm.directorate}}</option>
                     <option value="Change Management and PMO">Change Management and PMO</option>
                     <option value="Projects">Projects</option>
                     <option value="Operations">Operations</option>
@@ -125,13 +125,13 @@
             
             <div style="float:left; margin-right:20px; width: 45%;" >
             <label style="display: block;"> Designation<span style="color: red">*</span> </label>  
-                <input placeholder="Designation" align="justify" type="text" name="designation" style="width: 510px" required>
+                <input value="{{ goalForm.designation }}" align="justify" type="text" name="designation" style="width: 510px" required>
 
             </div>
 
             <div style="float:left; margin-right:20px; width: 45%; ">
             <label style="display: block;"> Supervisor Name<span style="color: red">*</span> </label>  
-                <input placeholder="Supervisor Name" align="justify" type="text" name="supervisor_name" style="width: 510px" required>
+                <input value="{{ goalForm.supervisor_name }}" align="justify" type="text" name="supervisor_name" style="width: 510px" required>
             </div>
             <br style="clear:both;" />
             <br>
@@ -139,7 +139,7 @@
             <div style="float:left; margin-right:20px; width: 45%; ">
             <label style="display: block;"> Area Office<!-- <span style="color: red">*</span> --> </label> 
               <select name="area_office" placeholder="Area Office"align="justify" style="width: 510px">
-                    <option value="" disabled selected>Area Office</option>
+                    <option value="{{ goalForm.area_office }}">{{ goalForm.area_office }}</option>
                     <option value="Gwagwalada">Gwagwalada</option>
                     <option value="Jabi">Jabi</option>
                     <option value="Kuje">Kuje</option>
@@ -182,7 +182,7 @@
             <div style="float:left; margin-right:20px; width: 45%; ">
             <label style="display: block;"> Region <span style="color: red">*</span> </label>
                 <select name="region" id="dropdown" style="width: 510px" required>
-                    <option value="" disabled selected>Regions</option>
+                    <option value="{{ goalForm.region }}">{{ goalForm.region }}</option>
                     <option value="FCT Central">FCT Central</option>
                     <option value="FCT North">FCT North</option>
                     <option value="FCT South">FCT South</option>
@@ -199,8 +199,8 @@
 
     <div class="Goal-Info">
         <h4><strong>EVALUATION PERIOD</strong></h4>
-        <b>From:<span style="color: red">*</span></b> <input placeholder="Date From" align="justify" type="date" name="from" style="width: 40%" required>
-        <b> To:<span style="color: red">*</span> </b> <input placeholder="Date To" align="justify" type="date" name="to" style="width: 40%" required>
+        <b>From:<span style="color: red">*</span></b> <input   align="justify" type="date" name="from" value="{{ goalInfo.period_from }}" style="width: 40%" required>
+        <b> To:<span style="color: red">*</span> </b> <input  align="justify" type="date" name="to" value="{{ goalInfo.period_to }}" style="width: 40%" required>
         <br>
         <h4><strong>RATING GUIDE</strong></h4>
         <table id="appr_rating-guide">
@@ -245,22 +245,23 @@
                         <th id="Goal-id">Actual Result Achieved <span class="compulsory"> * </span></th>
                         <th id="Goal-id">Weight <span class="compulsory"> * </span></th>
                         <th id="Goal-id">Appraisee Rating <span class="compulsory"> * </span></th>
-                        <th id="Goal-id">Appraiser/Agreed Rating</th>
-                  <!--       <th id="Goal-id">Average </th> -->
+                        <th id="Goal-id">Appraiser Rating</th>
+                        <th id="Goal-id">Agreed Rating </th>
                         <th id="Goal-id">Score <span class="compulsory"> * </span></th>
                     </tr>
                 </thead>
                 <tbody v-for="(product,index) in products" id="goals-tbody">
+                    
                     <tr>
                         <!-- <td class="no">{{index}}</td> -->
-                        <td id="Goal-td" style="width: 30%"><textarea style="width: 100%; height: 100px"  name= "goal" required></textarea></td>
+                        <td id="Goal-td" style="width: 30%"><textarea style="width: 100%; height: 100px"  name= "goal" required> {{ goalInfo.objective }} </textarea></td>
 
-                        <td id="Goal-td" style="width: 30%"><textarea style="width: 100%; height: 100px" name= "actual_result" required></textarea></td>
+                        <td id="Goal-td" style="width: 30%"><textarea style="width: 100%; height: 100px" name= "actual_result"  required> {{ goalInfo.KPI }} </textarea></td>
 
-                        <td id="Goal-td"><input type="number" v-model="product.weight" class="weight" style="width: 100%; height: 100px" name='weight' required></td>
+                        <td id="Goal-td"><input type="number" v-model="product.weight" class="weight" style="width: 100%; height: 100px" name='weight' value="{{ goalInfo.weight }}" required></td>
 
                         <td id="Goal-td">
-                            <select v-model="product.selected" style="width: 100%" class="appraisee_rating" name="appraisee_rating" required>
+                            <select  v-model="product.selected" style="width: 100%" class="appraisee_rating" name="appraisee_rating" required>
                                 <option value=4>E</option>
                                 <option value=3>M</option>
                                 <option value=2>PM</option>
@@ -268,15 +269,18 @@
                             </select>
                             </td>  
 
-                            <td id="Goal-td"><input type="number" class="appraiser_rating" style="width: 100%; height: 100px" name="appraiser_rating" value=0 readonly="readonly"></td>
+                        <td id="Goal-td"><input type="number" class="appraiser_rating" style="width: 100%; height: 100px" name="appraiser_rating" value=0 readonly="readonly"></td>
 
-                        <!--  <td id="Goal-td"><textarea style="width: 100%; height: 100px" name= "average" readonly="readonly"> 0 </textarea></td> -->
+                        <td id="Goal-td"><input type="number" class="agreed_rating" style="width: 100%; height: 100px" name="agreed_rating" value=0 readonly="readonly"></td>
+
+
+                         <!-- <td id="Goal-td"><textarea style="width: 100%; height: 100px" name= "agreed_rating" readonly="readonly"> 0 </textarea></td> -->
 
                          <td id="Goal-td"><textarea style="width: 100%; height: 100px" name= "score" readonly="readonly"> [(product.selected/4)*product.weight] </textarea></td>
 
                         <td><i  class="fa fa-trash-o" @click="deleteRole(index)" value="Delete"></i></td>
                     </tr>
-                    
+                       
                 </tbody>
                 <tfoot>
                     <tr>
@@ -301,75 +305,6 @@
 
         <div>
             <h4><strong>SECTION B: ASSESSMENT OF BEHAVIORAL COMPETENCES (30%)</strong></h4>
-
-           <!--  <table id="appr_rating-guide">
-            <thead>
-            <tr id="Goal-Row">
-                <th id="Goal-id">S/N</th>
-                <th id="Goal-id">Behavioral Competencies</th>
-                <th id="Goal-id">Definitions</th>
-            </tr>
-            </thead>
-            <tbody>
-                <tr>
-                <td id="Goal-td">1</td>
-                <td id="Goal-td">Job Effectiveness</td>
-                <td id="Goal-td">Able to multi task, Possesses knowledge and skills necessary to perform job; Delivers information effectively in a variety of formats to different stakeholders.</td>
-                </tr>
-                <tr>
-                <td id="Goal-td">2</td>
-                <td id="Goal-td">Trust and Integrity</td>
-                <td id="Goal-td">Maintains and exemplifies a reputation for honesty, candour, confidentiality, and fairness. </td>
-                </tr>
-                <tr>
-                <td id="Goal-td">3</td>
-                <td id="Goal-td">Supervision and Management</td>
-                <td id="Goal-td">Gives clear directions and communicates performance expectations. Coaches, counsels and evaluates employees; Identifies areas for and supports employee development opportunities and career growth; Adapts easily to changing business and operational needs. </td>
-                </tr>
-                 <tr>
-                <td id="Goal-td">4</td>
-                <td id="Goal-td">Dependability</td>
-                <td id="Goal-td">Is available for work on a consistent and timely basis with infrequent unplanned absences; Completes work in a timely manner. Meets commitment with minimal oversight </td>
-                </tr>
-                <tr>
-                <td id="Goal-td">5</td>
-                <td id="Goal-td">Collaboration and Team Work</td>
-                <td id="Goal-td">Consistently and proactively shares relevant information with others; Promotes team cooperation by valuing opinions and contributions of others; Manages conflict effectively.</td>
-                </tr>
-                <tr>
-                <td id="Goal-td">6</td>
-                <td id="Goal-td">Organizational Success</td>
-                <td id="Goal-td">Develops strategic action plans for practical use. Committed to continuous quality/process improvement. Committed to continuous learning. Is creative and innovative.</td>
-                </tr>
-                 <tr>
-                <td id="Goal-td">7</td>
-                <td id="Goal-td">Customer Orientation</td>
-                <td id="Goal-td">Demonstrates customer focus by seeking out, understanding, and responding to the needs of both internal (co-workers) and external customers; Always takes ownership for delivering high quality services; Effectively and professionally works with upset customers, solving their problems; Routinely seeks to secure quality, long-lasting customer relations</td>
-                </tr>
-                 <tr>
-                <td id="Goal-td">8</td>
-                <td id="Goal-td">Leadership Drive</td>
-                <td id="Goal-td">Exhibits resourcefulness, independent action and professional judgment that are position appropriate; Develop and acts on appropriate problem solving methods. Develops other employees. Identifies and remedies situations that require improvements at work.</td>
-                </tr>
-                <tr>
-                <td id="Goal-td">9</td>
-                <td id="Goal-td">Organizational Compliance and Safety</td>
-                <td id="Goal-td">Adheres and leads the team in complying with all AEDC safety standards. Demonstrates appropriate use of and respect for organization’s property and equipment; Complies with the organization’s policies, regulations, rules, and procedures</td>
-                </tr>
-                <tr>
-                <td id="Goal-td">10</td>
-                <td id="Goal-td">Diversity and Respect</td>
-                <td id="Goal-td">Demonstrates respect individual, culture and ethnic group to increase effectiveness of every unit and function; Influences organizational culture in ways that value and support diversity; Encourages and contributes to the establishment and execution of diversity management and inclusion programmes</td>
-                </tr>
-                <tr>
-                <td id="Goal-td">11</td>
-                <td id="Goal-td">Attendance/Punctuality</td>
-                <td id="Goal-td">Being able to complete a required  task or fulfill an obligation before or at a previously designated time and  present at work</td>
-                </tr>
-            </tbody>
-        </table>
-        <br> -->
-
 
             <div>
             <label class="label_name"> Job Effectiveness <span class="compulsory"> * </span></label>
@@ -674,9 +609,9 @@
             point09:"",
             point10:"",
             products:[{
-                weight:0,
+                weight:{{ goalInfo.weight }},
                 desc:'',
-                selected:0              
+                selected:0,              
             }],
             employee_keys:[{
                 weight:0,

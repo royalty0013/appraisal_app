@@ -1,15 +1,22 @@
 
 .Tbody{
 	background-image: url('/static/goalsetting/images/goal.jpg');
-	height: 625px;
+  /*height: 800px;*/
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
+  background-size: 100%;
+  overflow: hidden;
+
 
 }
 
 .page_body{
   background-image: url('/static/goalsetting/images/perf.jpg');
+  background-size: cover;
+  background-attachment: fixed;
   height: 625px;
+  overflow: hidden;
 }
 
 .uk-card-body {

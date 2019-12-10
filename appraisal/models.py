@@ -222,7 +222,7 @@ class Appraisal_info(models.Model):
 	weight = models.IntegerField(default=0)
 	appraisee_rating = models.CharField(max_length=10, choices=RATING_CHOICES)
 	appraiser_rating = models.CharField(max_length=10, choices=RATING_CHOICES)
-	# average = models.FloatField(default=0.0)
+	agreed_rating = models.CharField(max_length=10, choices=RATING_CHOICES, default=0)
 	score = models.FloatField(default=0.0)
 
 	class meta:

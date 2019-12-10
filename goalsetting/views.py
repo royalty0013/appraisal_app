@@ -14,13 +14,13 @@ from django.conf import settings as st
 from .models import *
 # Create your views here.
 
-def index(request):
-	context = {}
-	return render(request, 'goalsetting/index.html', context)
+# def index(request):
+# 	context = {}
+# 	return render(request, 'goalsetting/index.html', context)
 
-def appraisal_homepage(request):
-  	context = {}
-  	return render(request, 'appraisal/appraisal_page.html', context)
+# def appraisal_homepage(request):
+#   	context = {}
+#   	return render(request, 'appraisal/appraisal_page.html', context)
 
 def success_page(request):
 	return render(request, 'goalsetting/appraisee_success_page.html')

@@ -3,6 +3,8 @@ from goalsetting import views
 from appraisal import views
 # 
 urlpatterns = [
+    url(r'^$', views.index, name='index' ),
+    url(r'^login/$', views.login_process, name='login_process' ),
     url(r'^page/$', views.page, name='page' ),
     url(r'^appraisal_homepage/$', views.appr_handler, name='appraisal_homepage'),
     url(r'^appr_success_page/$', views.appr_success_page, name='appr_success_page'),

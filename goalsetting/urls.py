@@ -3,9 +3,9 @@ from goalsetting import views
 
 # 
 urlpatterns = [
-    url(r'^$', views.index, name='index' ),
+    # url(r'^$', views.index, name='index' ),
     # url(r'^appraisal_homepage/$', views.appraisal_homepage, name='appraisal_homepage' ),
-    url(r'^login/$', views.login_process, name='login_process' ),
+    # url(r'^login/$', views.login_process, name='login_process' ),
     url(r'^homepage/$', views.goal_handler, name='homepage'),
     url(r'^success_page/$', views.success_page, name='success_page'),
     url(r'^approval_page/$', views.appr_suc_page, name='approval_page'),
